@@ -227,6 +227,28 @@
 ]]></content>
   </entry>
   <entry>
+    <title>社会工程学攻击经验总结</title>
+    <url>/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/</url>
+    <content><![CDATA[<h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
+<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
+</li>
+<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
+</li>
+<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
+<p>比如添加 Referer: <a href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
+<p>查看日志：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
+</li>
+<li><p><a href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
+</li>
+<li></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>渗透测试之实战经验</title>
     <url>/2022/11/15/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/</url>
     <content><![CDATA[<h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><h6 id="域名情况"><a href="#域名情况" class="headerlink" title="域名情况"></a>域名情况</h6><p>是否使用了第三方的内网穿透的子域名，比如xxx.github.io、网云穿等，如果是找到服务商。</p>
@@ -467,25 +489,94 @@
 ]]></content>
   </entry>
   <entry>
-    <title>社会工程学攻击经验总结</title>
-    <url>/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/</url>
-    <content><![CDATA[<h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
-<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
+    <title>业务逻辑漏洞</title>
+    <url>/2022/11/16/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/</url>
+    <content><![CDATA[<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/1_aPbK6xQJIHiaUOB16u0KcQnicDG9pg.png" alt="img"></p>
+<h2 id="逻辑漏洞"><a href="#逻辑漏洞" class="headerlink" title="逻辑漏洞"></a>逻辑漏洞</h2><blockquote>
+<p>逻辑漏洞应用在方方面面，主要是根据应用不通产生的逻辑方面漏洞不同。比如金融网站和互联网网站以及购物网站，挖掘逻辑漏洞方法完全不一样。所以本篇算是冰山一角，给大家一个科普！</p>
+</blockquote>
+<h2 id="常规漏洞漏洞"><a href="#常规漏洞漏洞" class="headerlink" title="常规漏洞漏洞"></a>常规漏洞漏洞</h2><p>逻辑漏洞是指由于程序逻辑不严或逻辑太复杂，导致一些逻辑分支不能够正常处理或处理错误，一般出现在一下几个方面：</p>
+<ul>
+<li>任意密码修改（没有旧密码验证）</li>
+<li>越权访问</li>
+<li>密码找回</li>
+<li>交易支付金额</li>
+<li>……</li>
+</ul>
+<p>登陆时，是否可以绕过验证码形成撞库</p>
+<h3 id="登录处主要存在的点"><a href="#登录处主要存在的点" class="headerlink" title="登录处主要存在的点"></a>登录处主要存在的点</h3><ul>
+<li><p>返回包中有验证码</p>
 </li>
-<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
+<li><p>返回页面 hidden中有验证码</p>
 </li>
-<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
-<p>比如添加 Referer: <a href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
-<p>查看日志：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
+<li><p>有些其他登陆url中不需要验证码</p>
 </li>
-<li><p><a href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
+<li><p>验证码不变，验证码没有一个完整的服务请求，只在刷新url时才变</p>
 </li>
-<li></li>
-</ol>
+<li><p>第一次请求包验证了验证码是否正确，第二次请求不需要验证</p>
+</li>
+<li><p>拦截登录时验证码的刷新请求，第一次验证码未失效，可绕过</p>
+</li>
+<li><p>验证码和用户名、密码是否一次同时提交</p>
+</li>
+<li><p>公众号，app无验证</p>
+</li>
+<li><h3 id="密码找回"><a href="#密码找回" class="headerlink" title="密码找回"></a>密码找回</h3></li>
+<li><p>验证码回传</p>
+</li>
+<li><p>验证码时间长，不失效可爆破（字典可去除全1重复数多的）</p>
+</li>
+<li><p>修改密码，修改发送手机号修改为自己可控，</p>
+</li>
+<li><p>邮箱验证可猜测</p>
+</li>
+<li><p>假如找回需要4部，最后一部有user参数，用自己账号正常到第三部，第四部修改user实现逻辑</p>
+</li>
+<li><p>可以跳步找回（直接访问页面）</p>
+</li>
+<li><p>本地验证，修改返回值</p>
+</li>
+<li><p>服务器验证为空，包中直接删除验证码</p>
+</li>
+<li><p>个别验证码全0可绕过</p>
+</li>
+<li><p>token生成可控（wooyun两篇实例）</p>
+</li>
+<li><p>cookie覆盖</p>
+</li>
+<li><p>删除验证码校验，绕过</p>
+</li>
+<li><h3 id="支付"><a href="#支付" class="headerlink" title="支付"></a>支付</h3></li>
+<li><p>金额运费修改</p>
+</li>
+<li><p>修改bxprice，可改成任意负数金额数量</p>
+</li>
+<li><p>请求重放，多次下单</p>
+</li>
+<li><p>并发 （数据库操作加锁）</p>
+</li>
+<li><p>参数污染 请求没该参数，却返回该参数，可请求该参数污染返回值</p>
+</li>
+<li><h3 id="越权逻辑漏洞"><a href="#越权逻辑漏洞" class="headerlink" title="越权逻辑漏洞"></a>越权逻辑漏洞</h3></li>
+<li><p>越权访问漏洞，又可以分为横向越权访问漏洞与纵向越权访问漏洞两类。</p>
+</li>
+<li><h3 id="横向越权访问漏洞"><a href="#横向越权访问漏洞" class="headerlink" title="横向越权访问漏洞"></a>横向越权访问漏洞</h3></li>
+<li><p>指的是权限平级的两个用户之间的越权访问。<br>比如，一个正常的用户A通常只能够对自己的一些信息进行增删改查，但是由于程序员的一时疏忽未对信息进行增删改查的时候进行一个判断，判断所需要操作的信息是否属于对应的用户，因此，导致用户A可以操作其他人的信息。</p>
+</li>
+<li><h3 id="纵向越权访问漏洞"><a href="#纵向越权访问漏洞" class="headerlink" title="纵向越权访问漏洞"></a>纵向越权访问漏洞</h3></li>
+<li><p>指的是权限不等的两个用户之间的越权访问。</p>
+</li>
+<li><p>一般都是，低权限的用户可以直接访问高权限的用户的信息。</p>
+</li>
+<li><p>比如，在论坛中，你是一个普通用户，有一天，你通过<code>burpsuite</code>抓包修改了自己的用户<code>ID</code>为管理员的用户ID，一不小心，成功登陆了管理员的账号。</p>
+</li>
+</ul>
+<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/2_dqE2263dMIGJqU2kwjIYwHaMDmenuw.png" alt="img"></p>
+<p>常见场景</p>
+<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/3_GSEkKicXb1EaufJ4ycbcvzhELPqGPQ.png" alt="img"></p>
+<p>逻辑漏洞思维导图</p>
+<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/4_sarKH1sLt64QBFD5eIgDHttoaaDGdQ.png" alt="img"></p>
+<p><strong><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/5_rsSo8PwNYlT1XzZ6fbwQuXBRKf4j3Q.png" alt="img"></strong></p>
 ]]></content>
   </entry>
 </search>
