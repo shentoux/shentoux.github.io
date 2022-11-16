@@ -20,7 +20,7 @@
   </entry>
   <entry>
     <title>如何利用 Github 搭建自己的免费图床</title>
-    <url>/2022/11/13/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Github%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%EF%BC%9F/</url>
+    <url>/2022/11/16/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Github%20%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A%EF%BC%9F/</url>
     <content><![CDATA[<h2 id="如何利用-Github-搭建自己的免费图床"><a href="#如何利用-Github-搭建自己的免费图床" class="headerlink" title="如何利用 Github 搭建自己的免费图床"></a>如何利用 Github 搭建自己的免费图床</h2><p>原文出处： <a href="https://www.jianshu.com/p/69c122f16467">https://www.jianshu.com/p/69c122f16467</a>   </p>
 <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>对于写博客的朋友们来讲，图床这个东西一定不会陌生，而且在一定程度上也给大家造成过一定困扰。</p>
 <p>对于不清楚这个东西的朋友，我就在这儿大概说一下图床是个啥东西。所谓图床，其实可以就相当于我们手机上的相册，不过他是在线的，而且是对大家开放的，大家都可以访问查看，但是编辑删除这些功能仅限于拥有者，就相当于用百度云分享的公开照片，你可以查看，也可以下载下来编辑，但是拥有权还是属于分享者。</p>
@@ -37,54 +37,52 @@
 <ol>
 <li>登录你的 Github 之后，创建一个新的仓库；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-7f3253ac4371cbe0.png"></p>
-<p>image</p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152400.png"></p>
 <ol start="2">
 <li>填写仓库先关资料，一般只需要选一个合适的仓库名，然后确保仓库为 <code>public</code> 其他的保持默认就好；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-645cd4da27fd3def.png"></p>
-<p>image</p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152409.png"></p>
 <ol start="3">
 <li>一般创建成功之后，会出现如下界面，至此，我们的图床算是创建好了，接下来就是如何上传图片了；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-60f70a4e08d83a6b.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152420.png"></p>
 <p>image</p>
 <h2 id="4-上传图片"><a href="#4-上传图片" class="headerlink" title="4. 上传图片"></a>4. 上传图片</h2><p>通过上面的步骤，我们的图床时搭建好了，但是通过传统的方法向 Github 上传图片太麻烦了，这里我们推荐使用一个开源图床工具 <a href="https://links.jianshu.com/go?to=https://molunerfinn.com/PicGo/">PicGo</a> 来作为我们的图片上传工具；</p>
 <p>PicGo 的安装就不说了，去他的 <a href="https://links.jianshu.com/go?to=https://molunerfinn.com/PicGo/">官网</a> 下载对应版本进行安装即可，我们主要讲讲如何用它来上传图片。安装后，打开软件其主页面如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-d9490d2272e0bdb9.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152430.png"></p>
 <p>image</p>
 <p>接下来就是配置 PicGo 的过程了。</p>
 <ol>
 <li>首先，我们先要去 Github 创建一个 token；</li>
 </ol>
 <p>以此打开 <code>Settings -&gt; Developer settings -&gt; Personal access tokens</code>，最后点击 <code>generate new token</code>；</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-c1d486ece505b9ba.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152441.png"></p>
 <p>image</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-a822eb96213d4855.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152449.png"></p>
 <p>image</p>
 <ol start="2">
 <li>填写及勾选相关信息，然后点击 <code>Genetate token</code> 即可；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-00d62505da9a1a2d.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152457.png"></p>
 <p>image</p>
 <ol start="3">
 <li><code>token</code> 生成，注意它只会显示一次，所以你最好把它复制下来到你的备忘录存好，方便下次使用，否则下次有需要重新新建；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-efb266154606a91e.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152507.png"></p>
 <p>image</p>
 <ol start="4">
 <li>配置 PicGo，依次打开 图床设置 -&gt; Github 图床；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-a8a11b2d49dee3c3.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152516.png"></p>
 <ol start="5">
 <li>填写相关信息，最后点击 <code>确定</code>即可，要将其作为默认图床的话，点击设为默认图床；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-3f1bb8f438b144c5.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152525.png"></p>
 <p>image</p>
 <ol start="6">
 <li>上传图片，通过上传区上传即可（Ctrl V 或者将图片拖拽都可以），也可以通过快捷键的方式上传（默认上传键为 <code>Ctrl + Shift + P</code>）；</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-af409ed4a4fcd285.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152537.png"></p>
 <p>image</p>
 <h2 id="5-加速访问"><a href="#5-加速访问" class="headerlink" title="5. 加速访问"></a>5. 加速访问</h2><p>大家可能会发现，我们上传到 Github 的图片有时候访问太慢了，有时候甚至直接加载不出来！那该咋办呢？</p>
 <p>这时候我们就可以用 <a href="https://links.jianshu.com/go?to=https://www.jsdelivr.com/">jsDelivr</a> 进行免费加速，而设置的方法也很简单，只需要在我们 PicGo 图床配置中添加如下自定义域名即可；</p>
@@ -92,7 +90,7 @@
 <p><code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code></p>
 </blockquote>
 <p>比如我的就是 <code>https://cdn.jsdelivr.net/gh/cunyu1943/blog-imgs</code></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-c1a81fd6ecaf7acf.png"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152547.png"></p>
 <p>image</p>
 <h2 id="6-图床推荐"><a href="#6-图床推荐" class="headerlink" title="6. 图床推荐"></a>6. 图床推荐</h2><p>除开用 Github 搭建的方式之后，我们也可以用 Gitee 进行搭建，搭建方式和本文大致相同。此外，我也推荐几个免费的图床给大家，大家可以根据自己的喜好进行选择；</p>
 <ol>
@@ -109,8 +107,7 @@
 <li>免费图床推荐；</li>
 </ol>
 <p>如果你对上面的部分有疑问，欢迎留言或者私信，我会在看到的第一时间回复你！</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/25592958-048b89fb1135d894.png"></p>
-<p>image</p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152558.png"></p>
 ]]></content>
   </entry>
   <entry>
@@ -227,30 +224,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>社会工程学攻击经验总结</title>
-    <url>/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/</url>
-    <content><![CDATA[<h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
-<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
-</li>
-<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
-</li>
-<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
-<p>比如添加 Referer: <a href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
-<p>查看日志：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
-</li>
-<li><p><a href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
-</li>
-<li></li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>渗透测试之实战经验</title>
-    <url>/2022/11/15/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/</url>
+    <url>/2022/11/16/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/</url>
     <content><![CDATA[<h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><h6 id="域名情况"><a href="#域名情况" class="headerlink" title="域名情况"></a>域名情况</h6><p>是否使用了第三方的内网穿透的子域名，比如xxx.github.io、网云穿等，如果是找到服务商。</p>
 <h6 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">站点注册人注册过的其他网站(对注册人、邮箱、电话的反查)，对查到的站点的深入</span><br></pre></td></tr></table></figure>
 
@@ -264,7 +239,7 @@
 
 <h6 id="网站架构-x2F-服务器指纹-x2F-CMS识别-x2F-容器"><a href="#网站架构-x2F-服务器指纹-x2F-CMS识别-x2F-容器" class="headerlink" title="网站架构&#x2F;服务器指纹&#x2F;CMS识别&#x2F;容器"></a>网站架构&#x2F;服务器指纹&#x2F;CMS识别&#x2F;容器</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Whatweb</span><br><span class="line">网页源代码</span><br><span class="line">请求头/响应头</span><br><span class="line">网站底部，顶部，左上角右上角</span><br><span class="line">网站报错信息</span><br><span class="line">http://www.yunsee.cn/</span><br><span class="line">域名/install</span><br><span class="line">Firefox、Chrome插件Wappalyzer</span><br><span class="line">CMS漏洞</span><br><span class="line">  定位版本对应已知漏洞检查</span><br><span class="line">  CMS未知漏洞挖掘</span><br><span class="line">Web容器已知漏洞(解析漏洞这种)</span><br><span class="line">显示网站使用的技术</span><br><span class="line">  https://builtwith.com/</span><br><span class="line">中间件、组件</span><br><span class="line">Weblogic、tomcat、zabbix、struts、axis等</span><br><span class="line">https://github.com/FortyNorthSecurity/EyeWitness</span><br></pre></td></tr></table></figure>
 
-<h6 id="是否动态网站"><a href="#是否动态网站" class="headerlink" title="是否动态网站"></a>是否动态网站</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">网页上是否留有qq、邮箱、手机号等信息</span><br><span class="line"></span><br><span class="line">静态网站：是否有留言框，如果肯定使用了第三方的平台服务，找出服务商</span><br><span class="line"></span><br><span class="line">动态网站：xss、SQL注入、前端js文件框架等等。</span><br></pre></td></tr></table></figure>
+<h6 id="是否动态网站"><a href="#是否动态网站" class="headerlink" title="是否动态网站"></a>是否动态网站</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">网页上是否留有qq、邮箱、手机号等信息</span><br><span class="line"></span><br><span class="line">静态网站：是否有留言框，如果肯定使用了第三方的平台服务，找出服务商</span><br><span class="line"></span><br><span class="line">动态网站：xss、SQL注入、前端js文件框架等等。</span><br><span class="line">前后端引用的图片情况？是否关联到github，其他第三方图床等。</span><br></pre></td></tr></table></figure>
 
 <h6 id="子域名"><a href="#子域名" class="headerlink" title="子域名"></a>子域名</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">老站、同样架构或同源码的子站</span><br><span class="line">爆破，接口查询</span><br><span class="line">  https://phpinfo.me/domain/</span><br><span class="line">  https://d.chinacycc.com/index.php?m=Login&amp;a=index</span><br><span class="line">  subDomainBrute、knockpy</span><br><span class="line">OWA发现、dig adfs、dig mail</span><br><span class="line">https://dns.bufferover.run/dns?q=baidu.com</span><br><span class="line">http://api.hackertarget.com/reversedns/?q=target.com</span><br></pre></td></tr></table></figure>
 
@@ -489,6 +464,28 @@
 ]]></content>
   </entry>
   <entry>
+    <title>社会工程学攻击经验总结</title>
+    <url>/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/</url>
+    <content><![CDATA[<h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
+<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
+</li>
+<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
+</li>
+<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
+<p>比如添加 Referer: <a href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
+<p>查看日志：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
+</li>
+<li><p><a href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
+</li>
+<li></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>业务逻辑漏洞</title>
     <url>/2022/11/16/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/</url>
     <content><![CDATA[<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/1_aPbK6xQJIHiaUOB16u0KcQnicDG9pg.png" alt="img"></p>
@@ -571,12 +568,11 @@
 <li><p>比如，在论坛中，你是一个普通用户，有一天，你通过<code>burpsuite</code>抓包修改了自己的用户<code>ID</code>为管理员的用户ID，一不小心，成功登陆了管理员的账号。</p>
 </li>
 </ul>
-<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/2_dqE2263dMIGJqU2kwjIYwHaMDmenuw.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152041.png"></p>
 <p>常见场景</p>
-<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/3_GSEkKicXb1EaufJ4ycbcvzhELPqGPQ.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152111.png"></p>
 <p>逻辑漏洞思维导图</p>
-<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/4_sarKH1sLt64QBFD5eIgDHttoaaDGdQ.png" alt="img"></p>
-<p><strong><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/5_rsSo8PwNYlT1XzZ6fbwQuXBRKf4j3Q.png" alt="img"></strong></p>
+<p><img src="https://raw.githubusercontent.com/shentoux/img/main/20221116152120.png"></p>
 ]]></content>
   </entry>
 </search>
